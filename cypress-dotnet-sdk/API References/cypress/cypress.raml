@@ -2,104 +2,121 @@
 title: Cypress
 version: v1
 baseUri: https://{domain}
-securitySchemes: 
-  - 
-    basic: 
+securitySchemes:
+  - basic:
       description: This API supports Basic Authentication.\n
       type: Basic Authentication
-securedBy: 
+securedBy:
   - basic
-baseUriParameters: 
-  domain: 
+baseUriParameters:
+  domain:
     description: base URL of the Cypress server
     type: string
-/vendors: 
+/vendors:
   displayName: Vendors
   description: A list of vendors undergoing certification
-  get: 
+  get:
     description: View a list of vendors
-    responses: 
+    responses:
       200:
-  post: 
+        body:
+          application/json:
+            schema: !include includes\vendors.json
+  post:
     description: Create a new vendor
-    body: 
+    body:
       application/json:
+        schema: !include includes\vendor.json
       application/xml:
-    responses: 
-      201: 
+    responses:
+      201:
         description: Successfully created a new vendor
-      422: 
+      422:
         description: Invalid vendor
-  /{id}: 
+  /{id}:
     displayName: Vendor
     description: A Vendor undergoing certification
-    uriParameters: 
-      id: 
+    uriParameters:
+      id:
         displayName: Vendor ID
         type: string
-    get: 
+    get:
       description: View information about a vendor
-      responses: 
-        200: 
+      responses:
+        200:
           description: Vendor object in JSON/XML
-    put: 
+          body:
+            application/json:
+              schema: !include includes\vendor.json
+    put:
       description: Update information about a vendor
-      body: 
+      body:
         application/json:
+          schema: !include includes\vendor.json
         application/xml:
       responses:
-        200: 
+        200:
           description: Vendor record updated
-    delete: 
+    delete:
       description: Delete a vendor
       responses:
-        200: 
+        200:
           description: Successfully deleted vendor
-    /products: 
+    /products:
       displayName: Product
       description: A vendor's products
-      get: 
+      get:
         description: View a list of the vendor's products undergoing certification
-        responses: 
+        responses:
           200:
-      post: 
+            body:
+              application/json:
+                schema: !include includes\products.json
+      post:
         description: Create a new product for this vendor
-        body: 
+        body:
           application/json:
+            schema: !include includes\product.json
           application/xml:
-        responses: 
-          201: 
+        responses:
+          201:
             description: Product has been created
-          422: 
+          422:
             description: Invalid Product
-      /{id}: 
+      /{product_id}:
         displayName: Product
         description: Product undergoing certification testing
-        uriParameters: 
-          id: 
+        uriParameters:
+          product_id:
             displayName: Product ID
-            type: integer
-        get: 
+            type: string
+        get:
           description: View information about a Product
-          responses: 
-            200: 
+          responses:
+            200:
               description: Product is available for testing
-        delete: 
+              body:
+                application/json:
+                  schema: !include includes\product.json
+        delete:
           description: Delete a product
-/product/{product_id}/product_tests: 
+/products/{product_id}/product_tests:
   displayName: Product Tests (Single Measure Testing and Filter Tests)
-  uriParameters: 
-    product_id: 
+  uriParameters:
+    product_id:
       displayName: Parent Task ID
       type: string
-  get: 
+  get:
     description: View list of a product's tests (One per measure for C1/C2, One for each C4 Filter)
-    responses: 
+    responses:
       200:
         description: Product is available for testing
+        body:
+          application/json:
+            schema: !include includes\product_tests.json
   /{id}:
-    uriParameters: 
-      id: 
+    uriParameters:
+      id:
         displayName: Product test ID
         type: string
     get:
@@ -107,41 +124,53 @@ baseUriParameters:
       responses:
         200:
           description: Product is available for testing
-/product_tests/{product_test_id}/tasks: 
-  uriParameters: 
-    product_test_id: 
+          body:
+            application/json:
+              schema: !include includes\product_test.json
+/product_tests/{product_test_id}/tasks:
+  uriParameters:
+    product_test_id:
       displayName: Parent resource product test ID
       type: string
-  get: 
+  get:
     description: List of testing tasks for a product ID
     responses:
       200:
         description: List of tasks for a product test
-  /{id}: 
-    uriParameters: 
-      id: 
+        body:
+          application/json:
+            schema: !include includes\tasks.json
+  /{id}:
+    uriParameters:
+      id:
         displayName: Task ID
         type: string
-    get: 
+    get:
       description: A single task for a product test such as a single C1 measure task or a Filter task
       responses:
-        200: 
-/tasks/{task_id}/test_executions: 
+        200:
+          body:
+            application/json:
+              schema: !include includes\task.json
+/tasks/{task_id}/test_executions:
   displayName: Task
-  uriParameters: 
-    task_id: 
+  uriParameters:
+    task_id:
       displayName: Parent Task ID
       type: string
-  get: 
+  get:
     description: View a list of test executions
     responses:
       200:
-  post: 
+        body:
+          application/json:
+            schema: !include includes\test_executions.json
+  post:
     description: Upload a new test artifact
-    body: 
-      multipart/form-data: 
-        formParameters: 
-          file: 
+    body:
+      multipart/form-data:
+        formParameters:
+          file:
             description: Artifact to be tested
             required: true
             type: file
@@ -150,33 +179,48 @@ baseUriParameters:
         description: File Uploaded Successfully. Cypress is checking data for accuracy and correctness
       422:
         description: File uploaded is not processable by Cypress
-  /{id}: 
-    uriParameters: 
-      id: 
+  /{id}:
+    uriParameters:
+      id:
         displayName: Test Execution ID
         type: string
-    get: 
+    get:
       description: View information about a test execution
       responses:
         200:
-    delete: 
+          body:
+            application/json:
+              schema: !include includes\test_execution.json
+    delete:
       description: Delete a test execution
       responses:
         200:
-/bundles: 
-  displayName: Annual Updates Measure Bundle
-  get: 
+/bundles:
+  description: Bundles installed on the system
+  get:
     description: View a list of all installed bundles
     responses:
       200:
-  /{id}: 
-    uriParameters: 
-      id: 
+        body:
+          application/json:
+            schema: !include includes\bundles.json
+  /{id}:
+    description: Annual Update Bundle
+    uriParameters:
+      id:
         displayName: Bundle ID
     get:
       description: View a list of all installed bundles
       responses:
         200:
-    displayName: Annual Update Bundle
-    /measures: 
-      displayName: Clinical Quality Measures
+          body:
+            application/json:
+              schema: !include includes\bundle.json
+    /measures:
+      get:
+        description: List of measure in the bundle
+        responses:
+          200:
+            body:
+               application/json:
+                schema: !include includes\measures.json                

@@ -1,0 +1,26 @@
+{
+	"title": "Execution Errors",
+	"id": "http://cypress.healthit.gov/schemas/execution_errors.json",
+	"$schema": "http://json-schema.org/schema#",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"properties": {
+			"message": {
+				"type": "string"
+			},
+			"msg_type": {
+				"type": "string"
+			},
+			"file_name": {
+				"type": "string"
+			},
+			"location": {
+				"type": "string"
+			},
+			"validator": {
+				"type": "string"
+			}
+		}
+	}
+}

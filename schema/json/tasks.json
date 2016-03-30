@@ -1,0 +1,36 @@
+{
+	"title": "Tasks",
+	"id": "http://cypress.healthit.gov/schemas/tasks.json",
+	"$schema": "http://json-schema.org/schema#",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"properties": {
+			"type": {
+				"type": "string"
+			},
+			"links": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"rel": {
+							"type": "string"
+						},
+						"href": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		"links": [{
+			"rel": "self",
+			"href": "/product_tests/{product_test_id}/tasks/{id}"
+		},
+		{
+			"rel": "executions",
+			"href": "/tasks/{task_id}/test_executions"
+		}]
+	}
+}
