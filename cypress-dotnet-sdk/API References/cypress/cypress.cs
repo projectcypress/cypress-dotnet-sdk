@@ -122,7 +122,7 @@ namespace cypress_dotnet_sdk.Cypress
 		/// </summary>
 		/// <param name="vendorsidproductspostrequestcontent"></param>
 		/// <param name="id"></param>
-        public virtual async Task<ApiResponse> Post(Models.VendorsIdProductsPostRequestContent vendorsidproductspostrequestcontent, string id)
+        public virtual async Task<Models.ProductsPostResponse> Post(Models.VendorsIdProductsPostRequestContent vendorsidproductspostrequestcontent, string id)
         {
 
             var url = "vendors/{id}/products";
@@ -133,14 +133,23 @@ namespace cypress_dotnet_sdk.Cypress
             var req = new HttpRequestMessage(HttpMethod.Post, url);
             req.Content = new ObjectContent(typeof(Models.VendorsIdProductsPostRequestContent), vendorsidproductspostrequestcontent, new JsonMediaTypeFormatter());                           
 	        var response = await proxy.Client.SendAsync(req);
+			
+			if (proxy.SchemaValidation.Enabled)
+		    {
+				if(proxy.SchemaValidation.RaiseExceptions) 
+				{
+					await SchemaValidator.ValidateWithExceptionAsync("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content);
+				}
+					
+			}
 
-            return new ApiResponse  
+            return new Models.ProductsPostResponse  
                                             {
                                                 RawContent = response.Content,
                                                 RawHeaders = response.Headers, 
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content), true)
                                             };
 
         }
@@ -149,7 +158,8 @@ namespace cypress_dotnet_sdk.Cypress
 		/// A vendor&apos;s products. Create a new product for this vendor - Product
 		/// </summary>
 		/// <param name="request">Models.ProductsPostRequest</param>
-        public virtual async Task<ApiResponse> Post(Models.ProductsPostRequest request)
+		/// <param name="responseFormatters">response formmaters</param>
+        public virtual async Task<Models.ProductsPostResponse> Post(Models.ProductsPostRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
             var url = "vendors/{id}/products";
@@ -175,13 +185,22 @@ namespace cypress_dotnet_sdk.Cypress
             if(request.Formatter == null)
                 request.Formatter = new JsonMediaTypeFormatter();
 	        var response = await proxy.Client.SendAsync(req);
-            return new ApiResponse  
+			if (proxy.SchemaValidation.Enabled && proxy.SchemaValidation.RaiseExceptions)
+            {
+				if(proxy.SchemaValidation.RaiseExceptions)
+				{
+					await SchemaValidator.ValidateWithExceptionAsync("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content);
+				}
+				
+            }
+            return new Models.ProductsPostResponse  
                                             {
                                                 RawContent = response.Content,
                                                 RawHeaders = response.Headers,
+	                                            Formatters = responseFormatters,
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content), true)
                                             };
         }
 
@@ -447,7 +466,7 @@ namespace cypress_dotnet_sdk.Cypress
 		/// A list of vendors undergoing certification. Create a new vendor - Vendors
 		/// </summary>
 		/// <param name="vendorspostrequestcontent"></param>
-        public virtual async Task<ApiResponse> Post(Models.VendorsPostRequestContent vendorspostrequestcontent)
+        public virtual async Task<Models.VendorsPostResponse> Post(Models.VendorsPostRequestContent vendorspostrequestcontent)
         {
 
             var url = "vendors";
@@ -457,14 +476,23 @@ namespace cypress_dotnet_sdk.Cypress
             var req = new HttpRequestMessage(HttpMethod.Post, url);
             req.Content = new ObjectContent(typeof(Models.VendorsPostRequestContent), vendorspostrequestcontent, new JsonMediaTypeFormatter());                           
 	        var response = await proxy.Client.SendAsync(req);
+			
+			if (proxy.SchemaValidation.Enabled)
+		    {
+				if(proxy.SchemaValidation.RaiseExceptions) 
+				{
+					await SchemaValidator.ValidateWithExceptionAsync("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content);
+				}
+					
+			}
 
-            return new ApiResponse  
+            return new Models.VendorsPostResponse  
                                             {
                                                 RawContent = response.Content,
                                                 RawHeaders = response.Headers, 
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content), true)
                                             };
 
         }
@@ -473,7 +501,8 @@ namespace cypress_dotnet_sdk.Cypress
 		/// A list of vendors undergoing certification. Create a new vendor - Vendors
 		/// </summary>
 		/// <param name="request">Models.VendorsPostRequest</param>
-        public virtual async Task<ApiResponse> Post(Models.VendorsPostRequest request)
+		/// <param name="responseFormatters">response formmaters</param>
+        public virtual async Task<Models.VendorsPostResponse> Post(Models.VendorsPostRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
             var url = "vendors";
@@ -492,13 +521,22 @@ namespace cypress_dotnet_sdk.Cypress
             if(request.Formatter == null)
                 request.Formatter = new JsonMediaTypeFormatter();
 	        var response = await proxy.Client.SendAsync(req);
-            return new ApiResponse  
+			if (proxy.SchemaValidation.Enabled && proxy.SchemaValidation.RaiseExceptions)
+            {
+				if(proxy.SchemaValidation.RaiseExceptions)
+				{
+					await SchemaValidator.ValidateWithExceptionAsync("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content);
+				}
+				
+            }
+            return new Models.VendorsPostResponse  
                                             {
                                                 RawContent = response.Content,
                                                 RawHeaders = response.Headers,
+	                                            Formatters = responseFormatters,
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content), true)
                                             };
         }
 
@@ -1193,7 +1231,7 @@ namespace cypress_dotnet_sdk.Cypress
 		/// </summary>
 		/// <param name="content"></param>
 		/// <param name="task_id"></param>
-        public virtual async Task<ApiResponse> Post(string content, string task_id)
+        public virtual async Task<Models.TasksTaskIdTestExecutionsPostResponse> Post(string content, string task_id)
         {
 
             var url = "tasks/{task_id}/test_executions";
@@ -1204,14 +1242,23 @@ namespace cypress_dotnet_sdk.Cypress
             var req = new HttpRequestMessage(HttpMethod.Post, url);
             req.Content = new StringContent(content);
 	        var response = await proxy.Client.SendAsync(req);
+			
+			if (proxy.SchemaValidation.Enabled)
+		    {
+				if(proxy.SchemaValidation.RaiseExceptions) 
+				{
+					await SchemaValidator.ValidateWithExceptionAsync("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content);
+				}
+					
+			}
 
-            return new ApiResponse  
+            return new Models.TasksTaskIdTestExecutionsPostResponse  
                                             {
                                                 RawContent = response.Content,
                                                 RawHeaders = response.Headers, 
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content), true)
                                             };
 
         }
@@ -1220,7 +1267,8 @@ namespace cypress_dotnet_sdk.Cypress
 		/// Upload a new test artifact - Task
 		/// </summary>
 		/// <param name="request">Models.TasksTaskIdTestExecutionsPostRequest</param>
-        public virtual async Task<ApiResponse> Post(Models.TasksTaskIdTestExecutionsPostRequest request)
+		/// <param name="responseFormatters">response formmaters</param>
+        public virtual async Task<Models.TasksTaskIdTestExecutionsPostResponse> Post(Models.TasksTaskIdTestExecutionsPostRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
             var url = "tasks/{task_id}/test_executions";
@@ -1245,13 +1293,22 @@ namespace cypress_dotnet_sdk.Cypress
             }
             req.Content = request.Content;
 	        var response = await proxy.Client.SendAsync(req);
-            return new ApiResponse  
+			if (proxy.SchemaValidation.Enabled && proxy.SchemaValidation.RaiseExceptions)
+            {
+				if(proxy.SchemaValidation.RaiseExceptions)
+				{
+					await SchemaValidator.ValidateWithExceptionAsync("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content);
+				}
+				
+            }
+            return new Models.TasksTaskIdTestExecutionsPostResponse  
                                             {
                                                 RawContent = response.Content,
                                                 RawHeaders = response.Headers,
+	                                            Formatters = responseFormatters,
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content), true)
                                             };
         }
 
@@ -2037,6 +2094,28 @@ namespace cypress_dotnet_sdk.Cypress.Models
 
     } // end class
 
+    public partial class  Errors 
+    {
+
+		[JsonProperty("field")]
+        public string Field { get; set; }
+
+
+		[JsonProperty("messages")]
+        public IList<string> Messages { get; set; }
+
+
+    } // end class
+
+    public partial class  VendorsPost422ResponseContent 
+    {
+
+		[JsonProperty("errors")]
+        public IList<Errors> Errors { get; set; }
+
+
+    } // end class
+
     public partial class  VendorsIdGetOKResponseContent 
     {
 
@@ -2139,6 +2218,15 @@ namespace cypress_dotnet_sdk.Cypress.Models
 
 		[JsonProperty("links")]
         public IList<Links> Links { get; set; }
+
+
+    } // end class
+
+    public partial class  VendorsIdProductsPost422ResponseContent 
+    {
+
+		[JsonProperty("errors")]
+        public IList<Errors> Errors { get; set; }
 
 
     } // end class
@@ -2346,6 +2434,15 @@ namespace cypress_dotnet_sdk.Cypress.Models
 
 		[JsonProperty("links")]
         public IList<Links> Links { get; set; }
+
+
+    } // end class
+
+    public partial class  TasksTaskIdTestExecutionsPost422ResponseContent 
+    {
+
+		[JsonProperty("errors")]
+        public IList<Errors> Errors { get; set; }
 
 
     } // end class
@@ -2998,6 +3095,55 @@ namespace cypress_dotnet_sdk.Cypress.Models
     } // end class
 
     /// <summary>
+    /// Response object for method Post of class Products
+    /// </summary>
+
+    public partial class ProductsPostResponse : ApiResponse
+    {
+
+
+	    private VendorsIdProductsPost422ResponseContent typedContent;
+        /// <summary>
+        /// Typed Response content
+        /// </summary>
+        public VendorsIdProductsPost422ResponseContent Content 
+    	{
+	        get
+	        {
+		        if (typedContent != null)
+			        return typedContent;
+
+                IEnumerable<string> values = new List<string>();
+                if (RawContent != null && RawContent.Headers != null)
+                    RawContent.Headers.TryGetValues("Content-Type", out values);
+
+                if (values.Any(hv => hv.ToLowerInvariant().Contains("xml")) &&
+                    !values.Any(hv => hv.ToLowerInvariant().Contains("json")))
+                {
+                    var task = RawContent.ReadAsStreamAsync();
+
+                    var xmlStream = task.GetAwaiter().GetResult();
+                    typedContent = (VendorsIdProductsPost422ResponseContent)new XmlSerializer(typeof(VendorsIdProductsPost422ResponseContent)).Deserialize(xmlStream);
+                }
+                else
+                {
+                    var task =  Formatters != null && Formatters.Any() 
+                                ? RawContent.ReadAsAsync<VendorsIdProductsPost422ResponseContent>(Formatters).ConfigureAwait(false)
+                                : RawContent.ReadAsAsync<VendorsIdProductsPost422ResponseContent>().ConfigureAwait(false);
+		        
+		            typedContent = task.GetAwaiter().GetResult();
+                }
+
+		        return typedContent;
+	        }
+	    }
+
+		
+
+
+    } // end class
+
+    /// <summary>
     /// Response object for method GetByProductId of class Products
     /// </summary>
 
@@ -3082,6 +3228,55 @@ namespace cypress_dotnet_sdk.Cypress.Models
                     var task =  Formatters != null && Formatters.Any() 
                                 ? RawContent.ReadAsAsync<IList<VendorsGetOKResponseContent>>(Formatters).ConfigureAwait(false)
                                 : RawContent.ReadAsAsync<IList<VendorsGetOKResponseContent>>().ConfigureAwait(false);
+		        
+		            typedContent = task.GetAwaiter().GetResult();
+                }
+
+		        return typedContent;
+	        }
+	    }
+
+		
+
+
+    } // end class
+
+    /// <summary>
+    /// Response object for method Post of class Vendors
+    /// </summary>
+
+    public partial class VendorsPostResponse : ApiResponse
+    {
+
+
+	    private VendorsPost422ResponseContent typedContent;
+        /// <summary>
+        /// Typed Response content
+        /// </summary>
+        public VendorsPost422ResponseContent Content 
+    	{
+	        get
+	        {
+		        if (typedContent != null)
+			        return typedContent;
+
+                IEnumerable<string> values = new List<string>();
+                if (RawContent != null && RawContent.Headers != null)
+                    RawContent.Headers.TryGetValues("Content-Type", out values);
+
+                if (values.Any(hv => hv.ToLowerInvariant().Contains("xml")) &&
+                    !values.Any(hv => hv.ToLowerInvariant().Contains("json")))
+                {
+                    var task = RawContent.ReadAsStreamAsync();
+
+                    var xmlStream = task.GetAwaiter().GetResult();
+                    typedContent = (VendorsPost422ResponseContent)new XmlSerializer(typeof(VendorsPost422ResponseContent)).Deserialize(xmlStream);
+                }
+                else
+                {
+                    var task =  Formatters != null && Formatters.Any() 
+                                ? RawContent.ReadAsAsync<VendorsPost422ResponseContent>(Formatters).ConfigureAwait(false)
+                                : RawContent.ReadAsAsync<VendorsPost422ResponseContent>().ConfigureAwait(false);
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }
@@ -3376,6 +3571,55 @@ namespace cypress_dotnet_sdk.Cypress.Models
                     var task =  Formatters != null && Formatters.Any() 
                                 ? RawContent.ReadAsAsync<IList<TasksTaskIdTestExecutionsGetOKResponseContent>>(Formatters).ConfigureAwait(false)
                                 : RawContent.ReadAsAsync<IList<TasksTaskIdTestExecutionsGetOKResponseContent>>().ConfigureAwait(false);
+		        
+		            typedContent = task.GetAwaiter().GetResult();
+                }
+
+		        return typedContent;
+	        }
+	    }
+
+		
+
+
+    } // end class
+
+    /// <summary>
+    /// Response object for method Post of class TasksTaskIdTestExecutions
+    /// </summary>
+
+    public partial class TasksTaskIdTestExecutionsPostResponse : ApiResponse
+    {
+
+
+	    private TasksTaskIdTestExecutionsPost422ResponseContent typedContent;
+        /// <summary>
+        /// Typed Response content
+        /// </summary>
+        public TasksTaskIdTestExecutionsPost422ResponseContent Content 
+    	{
+	        get
+	        {
+		        if (typedContent != null)
+			        return typedContent;
+
+                IEnumerable<string> values = new List<string>();
+                if (RawContent != null && RawContent.Headers != null)
+                    RawContent.Headers.TryGetValues("Content-Type", out values);
+
+                if (values.Any(hv => hv.ToLowerInvariant().Contains("xml")) &&
+                    !values.Any(hv => hv.ToLowerInvariant().Contains("json")))
+                {
+                    var task = RawContent.ReadAsStreamAsync();
+
+                    var xmlStream = task.GetAwaiter().GetResult();
+                    typedContent = (TasksTaskIdTestExecutionsPost422ResponseContent)new XmlSerializer(typeof(TasksTaskIdTestExecutionsPost422ResponseContent)).Deserialize(xmlStream);
+                }
+                else
+                {
+                    var task =  Formatters != null && Formatters.Any() 
+                                ? RawContent.ReadAsAsync<TasksTaskIdTestExecutionsPost422ResponseContent>(Formatters).ConfigureAwait(false)
+                                : RawContent.ReadAsAsync<TasksTaskIdTestExecutionsPost422ResponseContent>().ConfigureAwait(false);
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }

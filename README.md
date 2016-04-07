@@ -50,6 +50,14 @@ if (vendorCreateResponse.StatusCode == HttpStatusCode.Created)
 {
 	// vendor created successfully
 	string vendorID = vendorCreateResponse.RawHeaders.Location.Segments.Last();
+} else if ((int) vendorCreateResponse.StatusCode == 422)
+{
+    var errors = vendorCreateResponse.Content;
+    foreach (var error in errors.Errors)
+    {
+        Console.WriteLine("{0}: {1}", error.Field, string.Join(", ",error.Messages));
+    }
+    return;
 }
 ```
 			
@@ -78,6 +86,14 @@ if (productCreateResponse.StatusCode == HttpStatusCode.Created)
 {
 	// product created successfully
 	string productID = productCreateResponse.RawHeaders.Location.Segments.Last();
+} else if ((int) productCreateResponse.StatusCode == 422)
+{
+    var errors = productCreateResponse.Content;
+    foreach (var error in errors.Errors)
+    {
+        Console.WriteLine("{0}: {1}", error.Field, string.Join(", ",error.Messages));
+    }
+    return;
 }
 ```
 

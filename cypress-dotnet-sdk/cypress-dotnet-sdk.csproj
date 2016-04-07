@@ -83,6 +83,7 @@
     </None>
     <None Include="API References\cypress\includes\bundle.json" />
     <None Include="API References\cypress\includes\bundles.json" />
+    <None Include="API References\cypress\includes\errors.json" />
     <None Include="API References\cypress\includes\measures.json" />
     <None Include="API References\cypress\includes\product.json" />
     <None Include="API References\cypress\includes\products.json" />
@@ -94,7 +95,9 @@
     <None Include="API References\cypress\includes\test_executions.json" />
     <None Include="API References\cypress\includes\vendor.json" />
     <None Include="API References\cypress\includes\vendors.json" />
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
