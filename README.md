@@ -52,12 +52,11 @@ if (vendorCreateResponse.StatusCode == HttpStatusCode.Created)
 	string vendorID = vendorCreateResponse.RawHeaders.Location.Segments.Last();
 } else if ((int) vendorCreateResponse.StatusCode == 422)
 {
-    var errors = vendorCreateResponse.Content;
+    var errors = vendorCreateResponse.Content.VendorsPost422ResponseContent;
     foreach (var error in errors.Errors)
     {
-        Console.WriteLine("{0}: {1}", error.Field, string.Join(", ",error.Messages));
+        Console.WriteLine("{0}: {1}", error.Field, string.Join(", ", error.Messages));
     }
-    return;
 }
 ```
 			
@@ -88,7 +87,7 @@ if (productCreateResponse.StatusCode == HttpStatusCode.Created)
 	string productID = productCreateResponse.RawHeaders.Location.Segments.Last();
 } else if ((int) productCreateResponse.StatusCode == 422)
 {
-    var errors = productCreateResponse.Content;
+    var errors = productCreateResponse.Content.VendorsIdProductsPost422ResponseContent;
     foreach (var error in errors.Errors)
     {
         Console.WriteLine("{0}: {1}", error.Field, string.Join(", ",error.Messages));

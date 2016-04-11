@@ -138,7 +138,7 @@ namespace cypress_dotnet_sdk.Cypress
 		    {
 				if(proxy.SchemaValidation.RaiseExceptions) 
 				{
-					await SchemaValidator.ValidateWithExceptionAsync("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content);
+					await SchemaValidator.ValidateWithExceptionAsync(Models.ProductsPostResponse.GetSchema(response.StatusCode), response.Content);
 				}
 					
 			}
@@ -149,7 +149,7 @@ namespace cypress_dotnet_sdk.Cypress
                                                 RawHeaders = response.Headers, 
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid(Models.ProductsPostResponse.GetSchema(response.StatusCode), response.Content), true)
                                             };
 
         }
@@ -189,7 +189,7 @@ namespace cypress_dotnet_sdk.Cypress
             {
 				if(proxy.SchemaValidation.RaiseExceptions)
 				{
-					await SchemaValidator.ValidateWithExceptionAsync("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content);
+					await SchemaValidator.ValidateWithExceptionAsync(Models.ProductsPostResponse.GetSchema(response.StatusCode), response.Content);
 				}
 				
             }
@@ -200,7 +200,7 @@ namespace cypress_dotnet_sdk.Cypress
 	                                            Formatters = responseFormatters,
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid(Models.ProductsPostResponse.GetSchema(response.StatusCode), response.Content), true)
                                             };
         }
 
@@ -481,7 +481,7 @@ namespace cypress_dotnet_sdk.Cypress
 		    {
 				if(proxy.SchemaValidation.RaiseExceptions) 
 				{
-					await SchemaValidator.ValidateWithExceptionAsync("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content);
+					await SchemaValidator.ValidateWithExceptionAsync(Models.VendorsPostResponse.GetSchema(response.StatusCode), response.Content);
 				}
 					
 			}
@@ -492,7 +492,7 @@ namespace cypress_dotnet_sdk.Cypress
                                                 RawHeaders = response.Headers, 
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid(Models.VendorsPostResponse.GetSchema(response.StatusCode), response.Content), true)
                                             };
 
         }
@@ -525,7 +525,7 @@ namespace cypress_dotnet_sdk.Cypress
             {
 				if(proxy.SchemaValidation.RaiseExceptions)
 				{
-					await SchemaValidator.ValidateWithExceptionAsync("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content);
+					await SchemaValidator.ValidateWithExceptionAsync(Models.VendorsPostResponse.GetSchema(response.StatusCode), response.Content);
 				}
 				
             }
@@ -536,7 +536,7 @@ namespace cypress_dotnet_sdk.Cypress
 	                                            Formatters = responseFormatters,
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid(Models.VendorsPostResponse.GetSchema(response.StatusCode), response.Content), true)
                                             };
         }
 
@@ -1247,7 +1247,7 @@ namespace cypress_dotnet_sdk.Cypress
 		    {
 				if(proxy.SchemaValidation.RaiseExceptions) 
 				{
-					await SchemaValidator.ValidateWithExceptionAsync("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content);
+					await SchemaValidator.ValidateWithExceptionAsync(Models.TasksTaskIdTestExecutionsPostResponse.GetSchema(response.StatusCode), response.Content);
 				}
 					
 			}
@@ -1258,7 +1258,7 @@ namespace cypress_dotnet_sdk.Cypress
                                                 RawHeaders = response.Headers, 
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid(Models.TasksTaskIdTestExecutionsPostResponse.GetSchema(response.StatusCode), response.Content), true)
                                             };
 
         }
@@ -1297,7 +1297,7 @@ namespace cypress_dotnet_sdk.Cypress
             {
 				if(proxy.SchemaValidation.RaiseExceptions)
 				{
-					await SchemaValidator.ValidateWithExceptionAsync("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content);
+					await SchemaValidator.ValidateWithExceptionAsync(Models.TasksTaskIdTestExecutionsPostResponse.GetSchema(response.StatusCode), response.Content);
 				}
 				
             }
@@ -1308,7 +1308,7 @@ namespace cypress_dotnet_sdk.Cypress
 	                                            Formatters = responseFormatters,
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}", response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid(Models.TasksTaskIdTestExecutionsPostResponse.GetSchema(response.StatusCode), response.Content), true)
                                             };
         }
 
@@ -2094,6 +2094,51 @@ namespace cypress_dotnet_sdk.Cypress.Models
 
     } // end class
 
+    public partial class  VendorsPostCreatedResponseContent 
+    {
+
+		[JsonProperty("vendor_id")]
+        public string Vendor_id { get; set; }
+
+
+		[JsonProperty("name")]
+        public string Name { get; set; }
+
+
+		[JsonProperty("url")]
+        public string Url { get; set; }
+
+
+		[JsonProperty("address")]
+        public string Address { get; set; }
+
+
+		[JsonProperty("zip")]
+        public string Zip { get; set; }
+
+
+		[JsonProperty("state")]
+        public string State { get; set; }
+
+
+		[JsonProperty("points_of_contact")]
+        public IList<PointsOfContact> Points_of_contact { get; set; }
+
+
+		[JsonProperty("created_at")]
+        public string Created_at { get; set; }
+
+
+		[JsonProperty("updated_at")]
+        public string Updated_at { get; set; }
+
+
+		[JsonProperty("links")]
+        public IList<Links> Links { get; set; }
+
+
+    } // end class
+
     public partial class  Errors 
     {
 
@@ -2162,6 +2207,67 @@ namespace cypress_dotnet_sdk.Cypress.Models
     } // end class
 
     public partial class  VendorsIdProductsGetOKResponseContent 
+    {
+
+		[JsonProperty("name")]
+        public string Name { get; set; }
+
+
+		[JsonProperty("version")]
+        public string Version { get; set; }
+
+
+		[JsonProperty("description")]
+        public string Description { get; set; }
+
+
+		[JsonProperty("bundle_id")]
+        public string Bundle_id { get; set; }
+
+
+		[JsonProperty("c1_test")]
+        public bool? C1_test { get; set; }
+
+
+		[JsonProperty("c2_test")]
+        public bool? C2_test { get; set; }
+
+
+		[JsonProperty("c3_test")]
+        public bool? C3_test { get; set; }
+
+
+		[JsonProperty("c4_test")]
+        public bool? C4_test { get; set; }
+
+
+		[JsonProperty("randomize_records")]
+        public bool? Randomize_records { get; set; }
+
+
+		[JsonProperty("duplicate_records")]
+        public bool? Duplicate_records { get; set; }
+
+
+		[JsonProperty("measure_ids")]
+        public IList<string> Measure_ids { get; set; }
+
+
+		[JsonProperty("created_at")]
+        public string Created_at { get; set; }
+
+
+		[JsonProperty("updated_at")]
+        public string Updated_at { get; set; }
+
+
+		[JsonProperty("links")]
+        public IList<Links> Links { get; set; }
+
+
+    } // end class
+
+    public partial class  VendorsIdProductsPostCreatedResponseContent 
     {
 
 		[JsonProperty("name")]
@@ -2438,6 +2544,27 @@ namespace cypress_dotnet_sdk.Cypress.Models
 
     } // end class
 
+    public partial class  TasksTaskIdTestExecutionsPostCreatedResponseContent 
+    {
+
+		[JsonProperty("state")]
+        public string State { get; set; }
+
+
+		[JsonProperty("execution_errors")]
+        public IList<ExecutionErrors> Execution_errors { get; set; }
+
+
+		[JsonProperty("created_at")]
+        public string Created_at { get; set; }
+
+
+		[JsonProperty("links")]
+        public IList<Links> Links { get; set; }
+
+
+    } // end class
+
     public partial class  TasksTaskIdTestExecutionsPost422ResponseContent 
     {
 
@@ -2527,6 +2654,120 @@ namespace cypress_dotnet_sdk.Cypress.Models
 
 		[JsonProperty("category")]
         public string Category { get; set; }
+
+
+    } // end class
+
+    /// <summary>
+    /// Multiple Response Types VendorsPostCreatedResponseContent, VendorsPost422ResponseContent
+    /// </summary>
+    public partial class  MultipleVendorsPost : ApiMultipleResponse
+    {
+        static readonly Dictionary<HttpStatusCode, string> schemas = new Dictionary<HttpStatusCode, string>
+        {
+			{ (HttpStatusCode)201, "{	\"title\": \"Vendor\",	\"id\": \"http://cypress.healthit.gov/schemas/vendor.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"vendor_id\": {			\"type\": \"string\"		},		\"name\": {			\"type\": \"string\"		},		\"url\": {			\"type\": \"string\"		},		\"address\": {			\"type\": \"string\"		},		\"zip\": {			\"type\": \"string\"		},		\"state\": {			\"type\": \"string\"		},		\"points_of_contact\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"name\": {						\"type\": \"string\"					},					\"email\": {						\"type\": \"string\"					},					\"phone\": {						\"type\": \"string\"					},					\"contact_type\": {						\"type\": \"string\"					}				}			}		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/vendors/{id}\"	},	{		\"rel\": \"products\",		\"href\": \"/vendors/{id}/products\"	}]}"},
+			{ (HttpStatusCode)422, "{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}"},
+		};
+        
+		public static string GetSchema(HttpStatusCode statusCode)
+        {
+            return schemas.ContainsKey(statusCode) ? schemas[statusCode] : string.Empty;
+        }
+        
+        public MultipleVendorsPost()
+        {
+            names.Add((HttpStatusCode)201, "VendorsPostCreatedResponseContent");
+            types.Add((HttpStatusCode)201, typeof(VendorsPostCreatedResponseContent));
+            names.Add((HttpStatusCode)422, "VendorsPost422ResponseContent");
+            types.Add((HttpStatusCode)422, typeof(VendorsPost422ResponseContent));
+        }
+
+        /// <summary>
+        /// Successfully created a new vendor 
+        /// </summary>
+        public VendorsPostCreatedResponseContent VendorsPostCreatedResponseContent { get; set; }
+
+
+        /// <summary>
+        /// Invalid vendor 
+        /// </summary>
+        public VendorsPost422ResponseContent VendorsPost422ResponseContent { get; set; }
+
+
+    } // end class
+
+    /// <summary>
+    /// Multiple Response Types VendorsIdProductsPostCreatedResponseContent, VendorsIdProductsPost422ResponseContent
+    /// </summary>
+    public partial class  MultipleVendorsIdProductsPost : ApiMultipleResponse
+    {
+        static readonly Dictionary<HttpStatusCode, string> schemas = new Dictionary<HttpStatusCode, string>
+        {
+			{ (HttpStatusCode)201, "{	\"title\": \"Product\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"version\": {			\"type\": \"string\"		},		\"description\": {			\"type\": \"string\"		},		\"bundle_id\": {			\"type\": \"string\"		},		\"c1_test\": {			\"type\": \"boolean\"		},		\"c2_test\": {			\"type\": \"boolean\"		},		\"c3_test\": {			\"type\": \"boolean\"		},		\"c4_test\": {			\"type\": \"boolean\"		},		\"randomize_records\": {			\"type\": \"boolean\"		},		\"duplicate_records\": {			\"type\": \"boolean\"		},		\"measure_ids\": {			\"type\": \"array\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/vendors/{vendor_id}/products/{id}\"	},	{		\"rel\": \"product_tests\",		\"href\": \"/products/{id}/product_tests\"	},	{		\"rel\": \"patients\",		\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"	}]}"},
+			{ (HttpStatusCode)422, "{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}"},
+		};
+        
+		public static string GetSchema(HttpStatusCode statusCode)
+        {
+            return schemas.ContainsKey(statusCode) ? schemas[statusCode] : string.Empty;
+        }
+        
+        public MultipleVendorsIdProductsPost()
+        {
+            names.Add((HttpStatusCode)201, "VendorsIdProductsPostCreatedResponseContent");
+            types.Add((HttpStatusCode)201, typeof(VendorsIdProductsPostCreatedResponseContent));
+            names.Add((HttpStatusCode)422, "VendorsIdProductsPost422ResponseContent");
+            types.Add((HttpStatusCode)422, typeof(VendorsIdProductsPost422ResponseContent));
+        }
+
+        /// <summary>
+        /// Product has been created 
+        /// </summary>
+        public VendorsIdProductsPostCreatedResponseContent VendorsIdProductsPostCreatedResponseContent { get; set; }
+
+
+        /// <summary>
+        /// Invalid Product 
+        /// </summary>
+        public VendorsIdProductsPost422ResponseContent VendorsIdProductsPost422ResponseContent { get; set; }
+
+
+    } // end class
+
+    /// <summary>
+    /// Multiple Response Types TasksTaskIdTestExecutionsPostCreatedResponseContent, TasksTaskIdTestExecutionsPost422ResponseContent
+    /// </summary>
+    public partial class  MultipleTasksTaskIdTestExecutionsPost : ApiMultipleResponse
+    {
+        static readonly Dictionary<HttpStatusCode, string> schemas = new Dictionary<HttpStatusCode, string>
+        {
+			{ (HttpStatusCode)201, "{	\"title\": \"Test Execution\",	\"id\": \"http://cypress.healthit.gov/schemas/test_execution.json#\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"state\": {			\"type\": \"string\"		},		\"execution_errors\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"message\": {						\"type\": \"string\"					},					\"msg_type\": {						\"type\": \"string\"					},					\"file_name\": {						\"type\": \"string\"					},					\"location\": {						\"type\": \"string\"					},					\"validator\": {						\"type\": \"string\"					}				}			}		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/tasks{task_id}/test_executions/{id}\"	}]}"},
+			{ (HttpStatusCode)422, "{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}"},
+		};
+        
+		public static string GetSchema(HttpStatusCode statusCode)
+        {
+            return schemas.ContainsKey(statusCode) ? schemas[statusCode] : string.Empty;
+        }
+        
+        public MultipleTasksTaskIdTestExecutionsPost()
+        {
+            names.Add((HttpStatusCode)201, "TasksTaskIdTestExecutionsPostCreatedResponseContent");
+            types.Add((HttpStatusCode)201, typeof(TasksTaskIdTestExecutionsPostCreatedResponseContent));
+            names.Add((HttpStatusCode)422, "TasksTaskIdTestExecutionsPost422ResponseContent");
+            types.Add((HttpStatusCode)422, typeof(TasksTaskIdTestExecutionsPost422ResponseContent));
+        }
+
+        /// <summary>
+        /// File Uploaded Successfully. Cypress is checking data for accuracy and correctness 
+        /// </summary>
+        public TasksTaskIdTestExecutionsPostCreatedResponseContent TasksTaskIdTestExecutionsPostCreatedResponseContent { get; set; }
+
+
+        /// <summary>
+        /// File uploaded is not processable by Cypress 
+        /// </summary>
+        public TasksTaskIdTestExecutionsPost422ResponseContent TasksTaskIdTestExecutionsPost422ResponseContent { get; set; }
 
 
     } // end class
@@ -3101,17 +3342,18 @@ namespace cypress_dotnet_sdk.Cypress.Models
     public partial class ProductsPostResponse : ApiResponse
     {
 
-
-	    private VendorsIdProductsPost422ResponseContent typedContent;
+	    private MultipleVendorsIdProductsPost typedContent;
         /// <summary>
-        /// Typed Response content
+        /// Typed response content
         /// </summary>
-        public VendorsIdProductsPost422ResponseContent Content 
-    	{
+        public MultipleVendorsIdProductsPost Content 
+	    {
 	        get
 	        {
-		        if (typedContent != null)
-			        return typedContent;
+		        if (typedContent != null) 
+					return typedContent;
+
+		        typedContent = new MultipleVendorsIdProductsPost();
 
                 IEnumerable<string> values = new List<string>();
                 if (RawContent != null && RawContent.Headers != null)
@@ -3123,23 +3365,27 @@ namespace cypress_dotnet_sdk.Cypress.Models
                     var task = RawContent.ReadAsStreamAsync();
 
                     var xmlStream = task.GetAwaiter().GetResult();
-                    typedContent = (VendorsIdProductsPost422ResponseContent)new XmlSerializer(typeof(VendorsIdProductsPost422ResponseContent)).Deserialize(xmlStream);
+                    var content = new XmlSerializer(typedContent.GetTypeByStatusCode(StatusCode)).Deserialize(xmlStream);
+                    typedContent.SetPropertyByStatusCode(StatusCode, content);
                 }
                 else
                 {
-                    var task =  Formatters != null && Formatters.Any() 
-                                ? RawContent.ReadAsAsync<VendorsIdProductsPost422ResponseContent>(Formatters).ConfigureAwait(false)
-                                : RawContent.ReadAsAsync<VendorsIdProductsPost422ResponseContent>().ConfigureAwait(false);
+		            var task = Formatters != null && Formatters.Any() 
+                                ? RawContent.ReadAsAsync(typedContent.GetTypeByStatusCode(StatusCode), Formatters).ConfigureAwait(false)
+                                : RawContent.ReadAsAsync(typedContent.GetTypeByStatusCode(StatusCode)).ConfigureAwait(false);
 		        
-		            typedContent = task.GetAwaiter().GetResult();
+		            var content = task.GetAwaiter().GetResult();
+                    typedContent.SetPropertyByStatusCode(StatusCode, content);
                 }
 
 		        return typedContent;
 	        }
-	    }
-
+    	}  
 		
-
+		public static string GetSchema(HttpStatusCode statusCode)
+        {
+            return MultipleVendorsIdProductsPost.GetSchema(statusCode);
+        }      
 
     } // end class
 
@@ -3248,17 +3494,18 @@ namespace cypress_dotnet_sdk.Cypress.Models
     public partial class VendorsPostResponse : ApiResponse
     {
 
-
-	    private VendorsPost422ResponseContent typedContent;
+	    private MultipleVendorsPost typedContent;
         /// <summary>
-        /// Typed Response content
+        /// Typed response content
         /// </summary>
-        public VendorsPost422ResponseContent Content 
-    	{
+        public MultipleVendorsPost Content 
+	    {
 	        get
 	        {
-		        if (typedContent != null)
-			        return typedContent;
+		        if (typedContent != null) 
+					return typedContent;
+
+		        typedContent = new MultipleVendorsPost();
 
                 IEnumerable<string> values = new List<string>();
                 if (RawContent != null && RawContent.Headers != null)
@@ -3270,23 +3517,27 @@ namespace cypress_dotnet_sdk.Cypress.Models
                     var task = RawContent.ReadAsStreamAsync();
 
                     var xmlStream = task.GetAwaiter().GetResult();
-                    typedContent = (VendorsPost422ResponseContent)new XmlSerializer(typeof(VendorsPost422ResponseContent)).Deserialize(xmlStream);
+                    var content = new XmlSerializer(typedContent.GetTypeByStatusCode(StatusCode)).Deserialize(xmlStream);
+                    typedContent.SetPropertyByStatusCode(StatusCode, content);
                 }
                 else
                 {
-                    var task =  Formatters != null && Formatters.Any() 
-                                ? RawContent.ReadAsAsync<VendorsPost422ResponseContent>(Formatters).ConfigureAwait(false)
-                                : RawContent.ReadAsAsync<VendorsPost422ResponseContent>().ConfigureAwait(false);
+		            var task = Formatters != null && Formatters.Any() 
+                                ? RawContent.ReadAsAsync(typedContent.GetTypeByStatusCode(StatusCode), Formatters).ConfigureAwait(false)
+                                : RawContent.ReadAsAsync(typedContent.GetTypeByStatusCode(StatusCode)).ConfigureAwait(false);
 		        
-		            typedContent = task.GetAwaiter().GetResult();
+		            var content = task.GetAwaiter().GetResult();
+                    typedContent.SetPropertyByStatusCode(StatusCode, content);
                 }
 
 		        return typedContent;
 	        }
-	    }
-
+    	}  
 		
-
+		public static string GetSchema(HttpStatusCode statusCode)
+        {
+            return MultipleVendorsPost.GetSchema(statusCode);
+        }      
 
     } // end class
 
@@ -3591,17 +3842,18 @@ namespace cypress_dotnet_sdk.Cypress.Models
     public partial class TasksTaskIdTestExecutionsPostResponse : ApiResponse
     {
 
-
-	    private TasksTaskIdTestExecutionsPost422ResponseContent typedContent;
+	    private MultipleTasksTaskIdTestExecutionsPost typedContent;
         /// <summary>
-        /// Typed Response content
+        /// Typed response content
         /// </summary>
-        public TasksTaskIdTestExecutionsPost422ResponseContent Content 
-    	{
+        public MultipleTasksTaskIdTestExecutionsPost Content 
+	    {
 	        get
 	        {
-		        if (typedContent != null)
-			        return typedContent;
+		        if (typedContent != null) 
+					return typedContent;
+
+		        typedContent = new MultipleTasksTaskIdTestExecutionsPost();
 
                 IEnumerable<string> values = new List<string>();
                 if (RawContent != null && RawContent.Headers != null)
@@ -3613,23 +3865,27 @@ namespace cypress_dotnet_sdk.Cypress.Models
                     var task = RawContent.ReadAsStreamAsync();
 
                     var xmlStream = task.GetAwaiter().GetResult();
-                    typedContent = (TasksTaskIdTestExecutionsPost422ResponseContent)new XmlSerializer(typeof(TasksTaskIdTestExecutionsPost422ResponseContent)).Deserialize(xmlStream);
+                    var content = new XmlSerializer(typedContent.GetTypeByStatusCode(StatusCode)).Deserialize(xmlStream);
+                    typedContent.SetPropertyByStatusCode(StatusCode, content);
                 }
                 else
                 {
-                    var task =  Formatters != null && Formatters.Any() 
-                                ? RawContent.ReadAsAsync<TasksTaskIdTestExecutionsPost422ResponseContent>(Formatters).ConfigureAwait(false)
-                                : RawContent.ReadAsAsync<TasksTaskIdTestExecutionsPost422ResponseContent>().ConfigureAwait(false);
+		            var task = Formatters != null && Formatters.Any() 
+                                ? RawContent.ReadAsAsync(typedContent.GetTypeByStatusCode(StatusCode), Formatters).ConfigureAwait(false)
+                                : RawContent.ReadAsAsync(typedContent.GetTypeByStatusCode(StatusCode)).ConfigureAwait(false);
 		        
-		            typedContent = task.GetAwaiter().GetResult();
+		            var content = task.GetAwaiter().GetResult();
+                    typedContent.SetPropertyByStatusCode(StatusCode, content);
                 }
 
 		        return typedContent;
 	        }
-	    }
-
+    	}  
 		
-
+		public static string GetSchema(HttpStatusCode statusCode)
+        {
+            return MultipleTasksTaskIdTestExecutionsPost.GetSchema(statusCode);
+        }      
 
     } // end class
 
