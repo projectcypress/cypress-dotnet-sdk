@@ -789,7 +789,7 @@ namespace cypress_dotnet_sdk.Cypress
 		    {
 				if(proxy.SchemaValidation.RaiseExceptions) 
 				{
-					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Product Tests\",	\"id\": \"http://cypress.healthit.gov/schemas/product_tests.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"cms_id\": {				\"type\": \"string\"			},			\"measure_id\": {				\"type\": \"string\"			},			\"type\": {				\"type\": \"string\"			},			\"state\": {				\"type\": \"string\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		}	}}", response.Content);
+					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Product Tests\",	\"id\": \"http://cypress.healthit.gov/schemas/product_tests.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"cms_id\": {				\"type\": \"string\"			},			\"measure_id\": {				\"type\": \"string\"			},			\"type\": {				\"type\": \"string\"			},			\"state\": {				\"type\": \"string\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"filters\": {				\"type\": \"object\",				\"properties\": {					\"problem\": {						\"type\": \"string\"					},					\"gender\": {						\"type\": \"string\"					},					\"payer\": {						\"type\": \"string\"					},					\"race\": {						\"type\": \"string\"					},					\"ethnicity\": {						\"type\": \"string\"					},					\"provider\": {						\"type\": \"object\",						\"properties\": {							\"npi\": {								\"type\": \"string\"							},							\"tin\": {								\"type\": \"string\"							},							\"address\": {								\"type\": \"object\",								\"properties\": {									\"street\": {										\"type\": \"string\"									},									\"city\": {										\"type\": \"string\"									},									\"state\": {										\"type\": \"string\"									},									\"zip\": {										\"type\": \"string\"									},									\"country\": {										\"type\": \"string\"									}								}							}						}					}				}			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		}	}}", response.Content);
 				}
 					
 			}
@@ -800,7 +800,7 @@ namespace cypress_dotnet_sdk.Cypress
                                                 RawHeaders = response.Headers, 
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Product Tests\",	\"id\": \"http://cypress.healthit.gov/schemas/product_tests.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"cms_id\": {				\"type\": \"string\"			},			\"measure_id\": {				\"type\": \"string\"			},			\"type\": {				\"type\": \"string\"			},			\"state\": {				\"type\": \"string\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		}	}}", response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Product Tests\",	\"id\": \"http://cypress.healthit.gov/schemas/product_tests.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"cms_id\": {				\"type\": \"string\"			},			\"measure_id\": {				\"type\": \"string\"			},			\"type\": {				\"type\": \"string\"			},			\"state\": {				\"type\": \"string\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"filters\": {				\"type\": \"object\",				\"properties\": {					\"problem\": {						\"type\": \"string\"					},					\"gender\": {						\"type\": \"string\"					},					\"payer\": {						\"type\": \"string\"					},					\"race\": {						\"type\": \"string\"					},					\"ethnicity\": {						\"type\": \"string\"					},					\"provider\": {						\"type\": \"object\",						\"properties\": {							\"npi\": {								\"type\": \"string\"							},							\"tin\": {								\"type\": \"string\"							},							\"address\": {								\"type\": \"object\",								\"properties\": {									\"street\": {										\"type\": \"string\"									},									\"city\": {										\"type\": \"string\"									},									\"state\": {										\"type\": \"string\"									},									\"zip\": {										\"type\": \"string\"									},									\"country\": {										\"type\": \"string\"									}								}							}						}					}				}			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		}	}}", response.Content), true)
                                             };
 
         }
@@ -838,7 +838,7 @@ namespace cypress_dotnet_sdk.Cypress
             {
 				if(proxy.SchemaValidation.RaiseExceptions)
 				{
-					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Product Tests\",	\"id\": \"http://cypress.healthit.gov/schemas/product_tests.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"cms_id\": {				\"type\": \"string\"			},			\"measure_id\": {				\"type\": \"string\"			},			\"type\": {				\"type\": \"string\"			},			\"state\": {				\"type\": \"string\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		}	}}", response.Content);
+					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Product Tests\",	\"id\": \"http://cypress.healthit.gov/schemas/product_tests.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"cms_id\": {				\"type\": \"string\"			},			\"measure_id\": {				\"type\": \"string\"			},			\"type\": {				\"type\": \"string\"			},			\"state\": {				\"type\": \"string\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"filters\": {				\"type\": \"object\",				\"properties\": {					\"problem\": {						\"type\": \"string\"					},					\"gender\": {						\"type\": \"string\"					},					\"payer\": {						\"type\": \"string\"					},					\"race\": {						\"type\": \"string\"					},					\"ethnicity\": {						\"type\": \"string\"					},					\"provider\": {						\"type\": \"object\",						\"properties\": {							\"npi\": {								\"type\": \"string\"							},							\"tin\": {								\"type\": \"string\"							},							\"address\": {								\"type\": \"object\",								\"properties\": {									\"street\": {										\"type\": \"string\"									},									\"city\": {										\"type\": \"string\"									},									\"state\": {										\"type\": \"string\"									},									\"zip\": {										\"type\": \"string\"									},									\"country\": {										\"type\": \"string\"									}								}							}						}					}				}			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		}	}}", response.Content);
 				}
 				
             }
@@ -849,7 +849,7 @@ namespace cypress_dotnet_sdk.Cypress
 	                                            Formatters = responseFormatters,
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Product Tests\",	\"id\": \"http://cypress.healthit.gov/schemas/product_tests.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"cms_id\": {				\"type\": \"string\"			},			\"measure_id\": {				\"type\": \"string\"			},			\"type\": {				\"type\": \"string\"			},			\"state\": {				\"type\": \"string\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		}	}}", response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Product Tests\",	\"id\": \"http://cypress.healthit.gov/schemas/product_tests.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"cms_id\": {				\"type\": \"string\"			},			\"measure_id\": {				\"type\": \"string\"			},			\"type\": {				\"type\": \"string\"			},			\"state\": {				\"type\": \"string\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"filters\": {				\"type\": \"object\",				\"properties\": {					\"problem\": {						\"type\": \"string\"					},					\"gender\": {						\"type\": \"string\"					},					\"payer\": {						\"type\": \"string\"					},					\"race\": {						\"type\": \"string\"					},					\"ethnicity\": {						\"type\": \"string\"					},					\"provider\": {						\"type\": \"object\",						\"properties\": {							\"npi\": {								\"type\": \"string\"							},							\"tin\": {								\"type\": \"string\"							},							\"address\": {								\"type\": \"object\",								\"properties\": {									\"street\": {										\"type\": \"string\"									},									\"city\": {										\"type\": \"string\"									},									\"state\": {										\"type\": \"string\"									},									\"zip\": {										\"type\": \"string\"									},									\"country\": {										\"type\": \"string\"									}								}							}						}					}				}			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		}	}}", response.Content), true)
                                             };
         }
 
@@ -875,7 +875,7 @@ namespace cypress_dotnet_sdk.Cypress
 		    {
 				if(proxy.SchemaValidation.RaiseExceptions) 
 				{
-					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Product Test\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"cms_id\": {			\"type\": \"string\"		},		\"measure_id\": {			\"type\": \"string\"		},		\"type\": {			\"type\": \"string\"		},		\"state\": {			\"type\": \"string\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/products/{product_id}/product_tests/{id}\"	},	{		\"rel\": \"tasks\",		\"href\": \"/product_tests/{id}/tasks\"	},	{		\"rel\": \"patients\",		\"href\": \"/product_tests/{id}/patients\"	}]}", response.Content);
+					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Product Test\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"cms_id\": {			\"type\": \"string\"		},		\"measure_id\": {			\"type\": \"string\"		},		\"type\": {			\"type\": \"string\"		},		\"state\": {			\"type\": \"string\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"filters\": {			\"type\": \"object\",			\"properties\": {				\"problem\": {					\"type\": \"string\"				},				\"gender\": {					\"type\": \"string\"				},				\"payer\": {					\"type\": \"string\"				},				\"race\": {					\"type\": \"string\"				},				\"ethnicity\": {					\"type\": \"string\"				},				\"provider\": {					\"type\": \"object\",					\"properties\": {						\"npi\": {							\"type\": \"string\"						},						\"tin\": {							\"type\": \"string\"						},						\"address\": {							\"type\": \"object\",							\"properties\": {								\"street\": {									\"type\": \"string\"								},								\"city\": {									\"type\": \"string\"								},								\"state\": {									\"type\": \"string\"								},								\"zip\": {									\"type\": \"string\"								},								\"country\": {									\"type\": \"string\"								}							}						}					}				}			}		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/products/{product_id}/product_tests/{id}\"	},	{		\"rel\": \"tasks\",		\"href\": \"/product_tests/{id}/tasks\"	},	{		\"rel\": \"patients\",		\"href\": \"/product_tests/{id}/patients\"	}]}", response.Content);
 				}
 					
 			}
@@ -886,7 +886,7 @@ namespace cypress_dotnet_sdk.Cypress
                                                 RawHeaders = response.Headers, 
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Product Test\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"cms_id\": {			\"type\": \"string\"		},		\"measure_id\": {			\"type\": \"string\"		},		\"type\": {			\"type\": \"string\"		},		\"state\": {			\"type\": \"string\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/products/{product_id}/product_tests/{id}\"	},	{		\"rel\": \"tasks\",		\"href\": \"/product_tests/{id}/tasks\"	},	{		\"rel\": \"patients\",		\"href\": \"/product_tests/{id}/patients\"	}]}", response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Product Test\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"cms_id\": {			\"type\": \"string\"		},		\"measure_id\": {			\"type\": \"string\"		},		\"type\": {			\"type\": \"string\"		},		\"state\": {			\"type\": \"string\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"filters\": {			\"type\": \"object\",			\"properties\": {				\"problem\": {					\"type\": \"string\"				},				\"gender\": {					\"type\": \"string\"				},				\"payer\": {					\"type\": \"string\"				},				\"race\": {					\"type\": \"string\"				},				\"ethnicity\": {					\"type\": \"string\"				},				\"provider\": {					\"type\": \"object\",					\"properties\": {						\"npi\": {							\"type\": \"string\"						},						\"tin\": {							\"type\": \"string\"						},						\"address\": {							\"type\": \"object\",							\"properties\": {								\"street\": {									\"type\": \"string\"								},								\"city\": {									\"type\": \"string\"								},								\"state\": {									\"type\": \"string\"								},								\"zip\": {									\"type\": \"string\"								},								\"country\": {									\"type\": \"string\"								}							}						}					}				}			}		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/products/{product_id}/product_tests/{id}\"	},	{		\"rel\": \"tasks\",		\"href\": \"/product_tests/{id}/tasks\"	},	{		\"rel\": \"patients\",		\"href\": \"/product_tests/{id}/patients\"	}]}", response.Content), true)
                                             };
 
         }
@@ -929,7 +929,7 @@ namespace cypress_dotnet_sdk.Cypress
             {
 				if(proxy.SchemaValidation.RaiseExceptions)
 				{
-					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Product Test\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"cms_id\": {			\"type\": \"string\"		},		\"measure_id\": {			\"type\": \"string\"		},		\"type\": {			\"type\": \"string\"		},		\"state\": {			\"type\": \"string\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/products/{product_id}/product_tests/{id}\"	},	{		\"rel\": \"tasks\",		\"href\": \"/product_tests/{id}/tasks\"	},	{		\"rel\": \"patients\",		\"href\": \"/product_tests/{id}/patients\"	}]}", response.Content);
+					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Product Test\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"cms_id\": {			\"type\": \"string\"		},		\"measure_id\": {			\"type\": \"string\"		},		\"type\": {			\"type\": \"string\"		},		\"state\": {			\"type\": \"string\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"filters\": {			\"type\": \"object\",			\"properties\": {				\"problem\": {					\"type\": \"string\"				},				\"gender\": {					\"type\": \"string\"				},				\"payer\": {					\"type\": \"string\"				},				\"race\": {					\"type\": \"string\"				},				\"ethnicity\": {					\"type\": \"string\"				},				\"provider\": {					\"type\": \"object\",					\"properties\": {						\"npi\": {							\"type\": \"string\"						},						\"tin\": {							\"type\": \"string\"						},						\"address\": {							\"type\": \"object\",							\"properties\": {								\"street\": {									\"type\": \"string\"								},								\"city\": {									\"type\": \"string\"								},								\"state\": {									\"type\": \"string\"								},								\"zip\": {									\"type\": \"string\"								},								\"country\": {									\"type\": \"string\"								}							}						}					}				}			}		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/products/{product_id}/product_tests/{id}\"	},	{		\"rel\": \"tasks\",		\"href\": \"/product_tests/{id}/tasks\"	},	{		\"rel\": \"patients\",		\"href\": \"/product_tests/{id}/patients\"	}]}", response.Content);
 				}
 				
             }
@@ -940,7 +940,7 @@ namespace cypress_dotnet_sdk.Cypress
 	                                            Formatters = responseFormatters,
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Product Test\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"cms_id\": {			\"type\": \"string\"		},		\"measure_id\": {			\"type\": \"string\"		},		\"type\": {			\"type\": \"string\"		},		\"state\": {			\"type\": \"string\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/products/{product_id}/product_tests/{id}\"	},	{		\"rel\": \"tasks\",		\"href\": \"/product_tests/{id}/tasks\"	},	{		\"rel\": \"patients\",		\"href\": \"/product_tests/{id}/patients\"	}]}", response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Product Test\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"cms_id\": {			\"type\": \"string\"		},		\"measure_id\": {			\"type\": \"string\"		},		\"type\": {			\"type\": \"string\"		},		\"state\": {			\"type\": \"string\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"filters\": {			\"type\": \"object\",			\"properties\": {				\"problem\": {					\"type\": \"string\"				},				\"gender\": {					\"type\": \"string\"				},				\"payer\": {					\"type\": \"string\"				},				\"race\": {					\"type\": \"string\"				},				\"ethnicity\": {					\"type\": \"string\"				},				\"provider\": {					\"type\": \"object\",					\"properties\": {						\"npi\": {							\"type\": \"string\"						},						\"tin\": {							\"type\": \"string\"						},						\"address\": {							\"type\": \"object\",							\"properties\": {								\"street\": {									\"type\": \"string\"								},								\"city\": {									\"type\": \"string\"								},								\"state\": {									\"type\": \"string\"								},								\"zip\": {									\"type\": \"string\"								},								\"country\": {									\"type\": \"string\"								}							}						}					}				}			}		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/products/{product_id}/product_tests/{id}\"	},	{		\"rel\": \"tasks\",		\"href\": \"/product_tests/{id}/tasks\"	},	{		\"rel\": \"patients\",		\"href\": \"/product_tests/{id}/patients\"	}]}", response.Content), true)
                                             };
         }
 
@@ -2398,6 +2398,77 @@ namespace cypress_dotnet_sdk.Cypress.Models
 
     } // end class
 
+    public partial class  Address 
+    {
+
+		[JsonProperty("street")]
+        public string Street { get; set; }
+
+
+		[JsonProperty("city")]
+        public string City { get; set; }
+
+
+		[JsonProperty("state")]
+        public string State { get; set; }
+
+
+		[JsonProperty("zip")]
+        public string Zip { get; set; }
+
+
+		[JsonProperty("country")]
+        public string Country { get; set; }
+
+
+    } // end class
+
+    public partial class  Provider 
+    {
+
+		[JsonProperty("npi")]
+        public string Npi { get; set; }
+
+
+		[JsonProperty("tin")]
+        public string Tin { get; set; }
+
+
+		[JsonProperty("address")]
+        public Address Address { get; set; }
+
+
+    } // end class
+
+    public partial class  Filters 
+    {
+
+		[JsonProperty("problem")]
+        public string Problem { get; set; }
+
+
+		[JsonProperty("gender")]
+        public string Gender { get; set; }
+
+
+		[JsonProperty("payer")]
+        public string Payer { get; set; }
+
+
+		[JsonProperty("race")]
+        public string Race { get; set; }
+
+
+		[JsonProperty("ethnicity")]
+        public string Ethnicity { get; set; }
+
+
+		[JsonProperty("provider")]
+        public Provider Provider { get; set; }
+
+
+    } // end class
+
     public partial class  ProductsProductIdProductTestsGetOKResponseContent 
     {
 
@@ -2427,6 +2498,10 @@ namespace cypress_dotnet_sdk.Cypress.Models
 
 		[JsonProperty("updated_at")]
         public string Updated_at { get; set; }
+
+
+		[JsonProperty("filters")]
+        public Filters Filters { get; set; }
 
 
 		[JsonProperty("links")]
@@ -2464,6 +2539,10 @@ namespace cypress_dotnet_sdk.Cypress.Models
 
 		[JsonProperty("updated_at")]
         public string Updated_at { get; set; }
+
+
+		[JsonProperty("filters")]
+        public Filters Filters { get; set; }
 
 
 		[JsonProperty("links")]
