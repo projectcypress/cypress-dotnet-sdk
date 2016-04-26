@@ -5,7 +5,7 @@
 ### Option 1: DLL
  - Copy **cypress-dotnet-sdk.dll** and **cypress-dotnet-sdk.dll.config** to a known location
  - Add the DLL as a reference to your project
- 
+
 
 ### Option 2: Import project
  - Copy the whole repository, and import the **cypress-dotnet-sdk.csproj** as an existing project
@@ -15,7 +15,7 @@
  - Use the **cypress.raml** file to generate code
 
 ### Required libraries:
-Nuget: 
+Nuget:
  - Json.NET
  - RAML.Api.Core
  - Microsoft ASP.NET Web API 2.2 Client Libraries (Microsoft.AspNet.WebApi.Client)
@@ -59,7 +59,7 @@ if (vendorCreateResponse.StatusCode == HttpStatusCode.Created)
     }
 }
 ```
-			
+
 ### Creating a Product
 
 ```csharp
@@ -127,7 +127,7 @@ foreach (var pTest in allProductTests)
 ```
 
 
-### Uploading Results Files 
+### Uploading Results Files
 
 ```csharp
 var tasks = client.ProductTestsProductTestIdTasks.Get(productTestID).Result.Content;
@@ -175,3 +175,19 @@ if (testExResult.Execution_errors != null)
 }
 ```
 
+License
+-------
+
+Copyright 2016 The MITRE Corporation
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
