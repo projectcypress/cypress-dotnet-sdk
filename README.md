@@ -136,7 +136,7 @@ foreach (var t in tasks)
 {
 	string taskID = t.Links.First(link => link.Rel == "self").Href.Split('/').Last(); ;
 
-	var task = client.ProductTestsProductTestIdTasks.GetById(productTestID, taskID).Result.Content;
+	var task = client.ProductTestsProductTestIdTasks.GetById(taskID, productTestID).Result.Content;
 
 	var postContent = new MultipartFormDataContent();
 
