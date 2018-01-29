@@ -36,6 +36,9 @@
 			"duplicate_records": {
 				"type": "boolean"
 			},
+            "shift_recods": {
+                "type": "boolean"
+            },
 			"measure_ids": {
 				"type": "array"
 			},

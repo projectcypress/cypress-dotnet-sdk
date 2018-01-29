@@ -16,6 +16,9 @@
 		"location": {
 			"type": "string"
 		},
+        "cms": {
+            "type": "boolean"
+        },
 		"validator": {
 			"type": "string"
 		}

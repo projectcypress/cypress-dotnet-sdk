@@ -34,6 +34,12 @@
 		"duplicate_records": {
 			"type": "boolean"
 		},
+        "shift_records": {
+            "type": "boolean"
+        },
+        "measure_selection": {
+            "type": "string"
+        },
 		"measure_ids": {
 			"type": "array"
 		},
