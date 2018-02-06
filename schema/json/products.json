@@ -39,6 +39,9 @@
             "shift_recods": {
                 "type": "boolean"
             },
+            "measure_selection": {
+                "type": "string"            
+            },
 			"measure_ids": {
 				"type": "array"
 			},
