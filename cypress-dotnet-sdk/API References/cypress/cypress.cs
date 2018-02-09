@@ -1,4 +1,4 @@
-// Template: Client Proxy T4 Template (RAMLClient.t4) version 4.1
+// Template: Client Proxy T4 Template (RAMLClient.t4) version 5.0
 
 using System;
 using System.Collections.Generic;
@@ -52,10 +52,11 @@ namespace cypress_dotnet_sdk.Cypress
 		    {
 				if(proxy.SchemaValidation.RaiseExceptions) 
 				{
-					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Products\",	\"id\": \"http://cypress.healthit.gov/schemas/products.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"version\": {				\"type\": \"string\"			},			\"description\": {				\"type\": \"string\"			},			\"bundle_id\": {				\"type\": \"string\"			},			\"c1_test\": {				\"type\": \"boolean\"			},			\"c2_test\": {				\"type\": \"boolean\"			},			\"c3_test\": {				\"type\": \"boolean\"			},			\"c4_test\": {				\"type\": \"boolean\"			},			\"randomize_records\": {				\"type\": \"boolean\"			},			\"duplicate_records\": {				\"type\": \"boolean\"			},			\"measure_ids\": {				\"type\": \"array\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		},		\"links\": [{			\"rel\": \"self\",			\"href\": \"/vendors/{vendor_id}/products/{id}\"		},		{			\"rel\": \"product_tests\",			\"href\": \"/products/{id}/product_tests\"		},		{			\"rel\": \"patients\",			\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"		}]	}}", response.Content);
+					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Products\",	\"id\": \"http://cypress.healthit.gov/schemas/products.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"version\": {				\"type\": \"string\"			},			\"description\": {				\"type\": \"string\"			},			\"bundle_id\": {				\"type\": \"string\"			},			\"c1_test\": {				\"type\": \"boolean\"			},			\"c2_test\": {				\"type\": \"boolean\"			},			\"c3_test\": {				\"type\": \"boolean\"			},			\"c4_test\": {				\"type\": \"boolean\"			},			\"randomize_records\": {				\"type\": \"boolean\"			},			\"duplicate_records\": {				\"type\": \"boolean\"			},            \"shift_recods\": {                \"type\": \"boolean\"            },            \"measure_selection\": {                \"type\": \"string\"                        },			\"measure_ids\": {				\"type\": \"array\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		},		\"links\": [{			\"rel\": \"self\",			\"href\": \"/vendors/{vendor_id}/products/{id}\"		},		{			\"rel\": \"product_tests\",			\"href\": \"/products/{id}/product_tests\"		},		{			\"rel\": \"patients\",			\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"		}]	}}", response.Content);
 				}
 					
 			}
+
 
             return new Models.ProductsGetResponse  
                                             {
@@ -63,7 +64,7 @@ namespace cypress_dotnet_sdk.Cypress
                                                 RawHeaders = response.Headers, 
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Products\",	\"id\": \"http://cypress.healthit.gov/schemas/products.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"version\": {				\"type\": \"string\"			},			\"description\": {				\"type\": \"string\"			},			\"bundle_id\": {				\"type\": \"string\"			},			\"c1_test\": {				\"type\": \"boolean\"			},			\"c2_test\": {				\"type\": \"boolean\"			},			\"c3_test\": {				\"type\": \"boolean\"			},			\"c4_test\": {				\"type\": \"boolean\"			},			\"randomize_records\": {				\"type\": \"boolean\"			},			\"duplicate_records\": {				\"type\": \"boolean\"			},			\"measure_ids\": {				\"type\": \"array\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		},		\"links\": [{			\"rel\": \"self\",			\"href\": \"/vendors/{vendor_id}/products/{id}\"		},		{			\"rel\": \"product_tests\",			\"href\": \"/products/{id}/product_tests\"		},		{			\"rel\": \"patients\",			\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"		}]	}}", response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Products\",	\"id\": \"http://cypress.healthit.gov/schemas/products.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"version\": {				\"type\": \"string\"			},			\"description\": {				\"type\": \"string\"			},			\"bundle_id\": {				\"type\": \"string\"			},			\"c1_test\": {				\"type\": \"boolean\"			},			\"c2_test\": {				\"type\": \"boolean\"			},			\"c3_test\": {				\"type\": \"boolean\"			},			\"c4_test\": {				\"type\": \"boolean\"			},			\"randomize_records\": {				\"type\": \"boolean\"			},			\"duplicate_records\": {				\"type\": \"boolean\"			},            \"shift_recods\": {                \"type\": \"boolean\"            },            \"measure_selection\": {                \"type\": \"string\"                        },			\"measure_ids\": {				\"type\": \"array\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		},		\"links\": [{			\"rel\": \"self\",			\"href\": \"/vendors/{vendor_id}/products/{id}\"		},		{			\"rel\": \"product_tests\",			\"href\": \"/products/{id}/product_tests\"		},		{			\"rel\": \"patients\",			\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"		}]	}}", response.Content), true)
                                             };
 
         }
@@ -72,7 +73,7 @@ namespace cypress_dotnet_sdk.Cypress
 		/// A vendor&apos;s products. View a list of the vendor&apos;s products undergoing certification - Product
 		/// </summary>
 		/// <param name="request">Models.ProductsGetRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.ProductsGetResponse> Get(Models.ProductsGetRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -101,7 +102,7 @@ namespace cypress_dotnet_sdk.Cypress
             {
 				if(proxy.SchemaValidation.RaiseExceptions)
 				{
-					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Products\",	\"id\": \"http://cypress.healthit.gov/schemas/products.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"version\": {				\"type\": \"string\"			},			\"description\": {				\"type\": \"string\"			},			\"bundle_id\": {				\"type\": \"string\"			},			\"c1_test\": {				\"type\": \"boolean\"			},			\"c2_test\": {				\"type\": \"boolean\"			},			\"c3_test\": {				\"type\": \"boolean\"			},			\"c4_test\": {				\"type\": \"boolean\"			},			\"randomize_records\": {				\"type\": \"boolean\"			},			\"duplicate_records\": {				\"type\": \"boolean\"			},			\"measure_ids\": {				\"type\": \"array\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		},		\"links\": [{			\"rel\": \"self\",			\"href\": \"/vendors/{vendor_id}/products/{id}\"		},		{			\"rel\": \"product_tests\",			\"href\": \"/products/{id}/product_tests\"		},		{			\"rel\": \"patients\",			\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"		}]	}}", response.Content);
+					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Products\",	\"id\": \"http://cypress.healthit.gov/schemas/products.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"version\": {				\"type\": \"string\"			},			\"description\": {				\"type\": \"string\"			},			\"bundle_id\": {				\"type\": \"string\"			},			\"c1_test\": {				\"type\": \"boolean\"			},			\"c2_test\": {				\"type\": \"boolean\"			},			\"c3_test\": {				\"type\": \"boolean\"			},			\"c4_test\": {				\"type\": \"boolean\"			},			\"randomize_records\": {				\"type\": \"boolean\"			},			\"duplicate_records\": {				\"type\": \"boolean\"			},            \"shift_recods\": {                \"type\": \"boolean\"            },            \"measure_selection\": {                \"type\": \"string\"                        },			\"measure_ids\": {				\"type\": \"array\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		},		\"links\": [{			\"rel\": \"self\",			\"href\": \"/vendors/{vendor_id}/products/{id}\"		},		{			\"rel\": \"product_tests\",			\"href\": \"/products/{id}/product_tests\"		},		{			\"rel\": \"patients\",			\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"		}]	}}", response.Content);
 				}
 				
             }
@@ -112,7 +113,7 @@ namespace cypress_dotnet_sdk.Cypress
 	                                            Formatters = responseFormatters,
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Products\",	\"id\": \"http://cypress.healthit.gov/schemas/products.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"version\": {				\"type\": \"string\"			},			\"description\": {				\"type\": \"string\"			},			\"bundle_id\": {				\"type\": \"string\"			},			\"c1_test\": {				\"type\": \"boolean\"			},			\"c2_test\": {				\"type\": \"boolean\"			},			\"c3_test\": {				\"type\": \"boolean\"			},			\"c4_test\": {				\"type\": \"boolean\"			},			\"randomize_records\": {				\"type\": \"boolean\"			},			\"duplicate_records\": {				\"type\": \"boolean\"			},			\"measure_ids\": {				\"type\": \"array\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		},		\"links\": [{			\"rel\": \"self\",			\"href\": \"/vendors/{vendor_id}/products/{id}\"		},		{			\"rel\": \"product_tests\",			\"href\": \"/products/{id}/product_tests\"		},		{			\"rel\": \"patients\",			\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"		}]	}}", response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Products\",	\"id\": \"http://cypress.healthit.gov/schemas/products.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"array\",	\"items\": {		\"type\": \"object\",		\"properties\": {			\"name\": {				\"type\": \"string\"			},			\"version\": {				\"type\": \"string\"			},			\"description\": {				\"type\": \"string\"			},			\"bundle_id\": {				\"type\": \"string\"			},			\"c1_test\": {				\"type\": \"boolean\"			},			\"c2_test\": {				\"type\": \"boolean\"			},			\"c3_test\": {				\"type\": \"boolean\"			},			\"c4_test\": {				\"type\": \"boolean\"			},			\"randomize_records\": {				\"type\": \"boolean\"			},			\"duplicate_records\": {				\"type\": \"boolean\"			},            \"shift_recods\": {                \"type\": \"boolean\"            },            \"measure_selection\": {                \"type\": \"string\"                        },			\"measure_ids\": {				\"type\": \"array\"			},			\"created_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"updated_at\": {				\"type\": \"string\",				\"format\": \"date-time\"			},			\"links\": {				\"type\": \"array\",				\"items\": {					\"type\": \"object\",					\"properties\": {						\"rel\": {							\"type\": \"string\"						},						\"href\": {							\"type\": \"string\"						}					}				}			}		},		\"links\": [{			\"rel\": \"self\",			\"href\": \"/vendors/{vendor_id}/products/{id}\"		},		{			\"rel\": \"product_tests\",			\"href\": \"/products/{id}/product_tests\"		},		{			\"rel\": \"patients\",			\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"		}]	}}", response.Content), true)
                                             };
         }
 
@@ -133,15 +134,6 @@ namespace cypress_dotnet_sdk.Cypress
             var req = new HttpRequestMessage(HttpMethod.Post, url);
             req.Content = new ObjectContent(typeof(Models.VendorsIdProductsPostRequestContent), vendorsidproductspostrequestcontent, new JsonMediaTypeFormatter());                           
 	        var response = await proxy.Client.SendAsync(req);
-			
-			if (proxy.SchemaValidation.Enabled)
-		    {
-				if(proxy.SchemaValidation.RaiseExceptions) 
-				{
-					await SchemaValidator.ValidateWithExceptionAsync(Models.ProductsPostResponse.GetSchema(response.StatusCode), response.Content);
-				}
-					
-			}
 
             return new Models.ProductsPostResponse  
                                             {
@@ -149,7 +141,7 @@ namespace cypress_dotnet_sdk.Cypress
                                                 RawHeaders = response.Headers, 
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid(Models.ProductsPostResponse.GetSchema(response.StatusCode), response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)
                                             };
 
         }
@@ -158,7 +150,7 @@ namespace cypress_dotnet_sdk.Cypress
 		/// A vendor&apos;s products. Create a new product for this vendor - Product
 		/// </summary>
 		/// <param name="request">Models.ProductsPostRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.ProductsPostResponse> Post(Models.ProductsPostRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -185,14 +177,6 @@ namespace cypress_dotnet_sdk.Cypress
             if(request.Formatter == null)
                 request.Formatter = new JsonMediaTypeFormatter();
 	        var response = await proxy.Client.SendAsync(req);
-			if (proxy.SchemaValidation.Enabled && proxy.SchemaValidation.RaiseExceptions)
-            {
-				if(proxy.SchemaValidation.RaiseExceptions)
-				{
-					await SchemaValidator.ValidateWithExceptionAsync(Models.ProductsPostResponse.GetSchema(response.StatusCode), response.Content);
-				}
-				
-            }
             return new Models.ProductsPostResponse  
                                             {
                                                 RawContent = response.Content,
@@ -200,7 +184,7 @@ namespace cypress_dotnet_sdk.Cypress
 	                                            Formatters = responseFormatters,
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid(Models.ProductsPostResponse.GetSchema(response.StatusCode), response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)
                                             };
         }
 
@@ -226,10 +210,11 @@ namespace cypress_dotnet_sdk.Cypress
 		    {
 				if(proxy.SchemaValidation.RaiseExceptions) 
 				{
-					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Product\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"version\": {			\"type\": \"string\"		},		\"description\": {			\"type\": \"string\"		},		\"bundle_id\": {			\"type\": \"string\"		},		\"c1_test\": {			\"type\": \"boolean\"		},		\"c2_test\": {			\"type\": \"boolean\"		},		\"c3_test\": {			\"type\": \"boolean\"		},		\"c4_test\": {			\"type\": \"boolean\"		},		\"randomize_records\": {			\"type\": \"boolean\"		},		\"duplicate_records\": {			\"type\": \"boolean\"		},		\"measure_ids\": {			\"type\": \"array\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/vendors/{vendor_id}/products/{id}\"	},	{		\"rel\": \"product_tests\",		\"href\": \"/products/{id}/product_tests\"	},	{		\"rel\": \"patients\",		\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"	}]}", response.Content);
+					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Product\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"version\": {			\"type\": \"string\"		},		\"description\": {			\"type\": \"string\"		},		\"bundle_id\": {			\"type\": \"string\"		},		\"c1_test\": {			\"type\": \"boolean\"		},		\"c2_test\": {			\"type\": \"boolean\"		},		\"c3_test\": {			\"type\": \"boolean\"		},		\"c4_test\": {			\"type\": \"boolean\"		},		\"randomize_records\": {			\"type\": \"boolean\"		},		\"duplicate_records\": {			\"type\": \"boolean\"		},        \"shift_records\": {            \"type\": \"boolean\"        },        \"measure_selection\": {            \"type\": \"string\"        },		\"measure_ids\": {			\"type\": \"array\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/vendors/{vendor_id}/products/{id}\"	},	{		\"rel\": \"product_tests\",		\"href\": \"/products/{id}/product_tests\"	},	{		\"rel\": \"patients\",		\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"	}]}", response.Content);
 				}
 					
 			}
+
 
             return new Models.ProductsGetByProductIdResponse  
                                             {
@@ -237,7 +222,7 @@ namespace cypress_dotnet_sdk.Cypress
                                                 RawHeaders = response.Headers, 
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Product\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"version\": {			\"type\": \"string\"		},		\"description\": {			\"type\": \"string\"		},		\"bundle_id\": {			\"type\": \"string\"		},		\"c1_test\": {			\"type\": \"boolean\"		},		\"c2_test\": {			\"type\": \"boolean\"		},		\"c3_test\": {			\"type\": \"boolean\"		},		\"c4_test\": {			\"type\": \"boolean\"		},		\"randomize_records\": {			\"type\": \"boolean\"		},		\"duplicate_records\": {			\"type\": \"boolean\"		},		\"measure_ids\": {			\"type\": \"array\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/vendors/{vendor_id}/products/{id}\"	},	{		\"rel\": \"product_tests\",		\"href\": \"/products/{id}/product_tests\"	},	{		\"rel\": \"patients\",		\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"	}]}", response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Product\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"version\": {			\"type\": \"string\"		},		\"description\": {			\"type\": \"string\"		},		\"bundle_id\": {			\"type\": \"string\"		},		\"c1_test\": {			\"type\": \"boolean\"		},		\"c2_test\": {			\"type\": \"boolean\"		},		\"c3_test\": {			\"type\": \"boolean\"		},		\"c4_test\": {			\"type\": \"boolean\"		},		\"randomize_records\": {			\"type\": \"boolean\"		},		\"duplicate_records\": {			\"type\": \"boolean\"		},        \"shift_records\": {            \"type\": \"boolean\"        },        \"measure_selection\": {            \"type\": \"string\"        },		\"measure_ids\": {			\"type\": \"array\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/vendors/{vendor_id}/products/{id}\"	},	{		\"rel\": \"product_tests\",		\"href\": \"/products/{id}/product_tests\"	},	{		\"rel\": \"patients\",		\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"	}]}", response.Content), true)
                                             };
 
         }
@@ -246,7 +231,7 @@ namespace cypress_dotnet_sdk.Cypress
 		/// Product undergoing certification testing. View information about a Product - Product
 		/// </summary>
 		/// <param name="request">Models.ProductsGetByProductIdRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.ProductsGetByProductIdResponse> GetByProductId(Models.ProductsGetByProductIdRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -280,7 +265,7 @@ namespace cypress_dotnet_sdk.Cypress
             {
 				if(proxy.SchemaValidation.RaiseExceptions)
 				{
-					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Product\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"version\": {			\"type\": \"string\"		},		\"description\": {			\"type\": \"string\"		},		\"bundle_id\": {			\"type\": \"string\"		},		\"c1_test\": {			\"type\": \"boolean\"		},		\"c2_test\": {			\"type\": \"boolean\"		},		\"c3_test\": {			\"type\": \"boolean\"		},		\"c4_test\": {			\"type\": \"boolean\"		},		\"randomize_records\": {			\"type\": \"boolean\"		},		\"duplicate_records\": {			\"type\": \"boolean\"		},		\"measure_ids\": {			\"type\": \"array\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/vendors/{vendor_id}/products/{id}\"	},	{		\"rel\": \"product_tests\",		\"href\": \"/products/{id}/product_tests\"	},	{		\"rel\": \"patients\",		\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"	}]}", response.Content);
+					await SchemaValidator.ValidateWithExceptionAsync("{	\"title\": \"Product\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"version\": {			\"type\": \"string\"		},		\"description\": {			\"type\": \"string\"		},		\"bundle_id\": {			\"type\": \"string\"		},		\"c1_test\": {			\"type\": \"boolean\"		},		\"c2_test\": {			\"type\": \"boolean\"		},		\"c3_test\": {			\"type\": \"boolean\"		},		\"c4_test\": {			\"type\": \"boolean\"		},		\"randomize_records\": {			\"type\": \"boolean\"		},		\"duplicate_records\": {			\"type\": \"boolean\"		},        \"shift_records\": {            \"type\": \"boolean\"        },        \"measure_selection\": {            \"type\": \"string\"        },		\"measure_ids\": {			\"type\": \"array\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/vendors/{vendor_id}/products/{id}\"	},	{		\"rel\": \"product_tests\",		\"href\": \"/products/{id}/product_tests\"	},	{		\"rel\": \"patients\",		\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"	}]}", response.Content);
 				}
 				
             }
@@ -291,7 +276,7 @@ namespace cypress_dotnet_sdk.Cypress
 	                                            Formatters = responseFormatters,
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Product\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"version\": {			\"type\": \"string\"		},		\"description\": {			\"type\": \"string\"		},		\"bundle_id\": {			\"type\": \"string\"		},		\"c1_test\": {			\"type\": \"boolean\"		},		\"c2_test\": {			\"type\": \"boolean\"		},		\"c3_test\": {			\"type\": \"boolean\"		},		\"c4_test\": {			\"type\": \"boolean\"		},		\"randomize_records\": {			\"type\": \"boolean\"		},		\"duplicate_records\": {			\"type\": \"boolean\"		},		\"measure_ids\": {			\"type\": \"array\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/vendors/{vendor_id}/products/{id}\"	},	{		\"rel\": \"product_tests\",		\"href\": \"/products/{id}/product_tests\"	},	{		\"rel\": \"patients\",		\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"	}]}", response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid("{	\"title\": \"Product\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"version\": {			\"type\": \"string\"		},		\"description\": {			\"type\": \"string\"		},		\"bundle_id\": {			\"type\": \"string\"		},		\"c1_test\": {			\"type\": \"boolean\"		},		\"c2_test\": {			\"type\": \"boolean\"		},		\"c3_test\": {			\"type\": \"boolean\"		},		\"c4_test\": {			\"type\": \"boolean\"		},		\"randomize_records\": {			\"type\": \"boolean\"		},		\"duplicate_records\": {			\"type\": \"boolean\"		},        \"shift_records\": {            \"type\": \"boolean\"        },        \"measure_selection\": {            \"type\": \"string\"        },		\"measure_ids\": {			\"type\": \"array\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/vendors/{vendor_id}/products/{id}\"	},	{		\"rel\": \"product_tests\",		\"href\": \"/products/{id}/product_tests\"	},	{		\"rel\": \"patients\",		\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"	}]}", response.Content), true)
                                             };
         }
 
@@ -409,6 +394,7 @@ namespace cypress_dotnet_sdk.Cypress
 					
 			}
 
+
             return new Models.VendorsGetResponse  
                                             {
                                                 RawContent = response.Content,
@@ -424,7 +410,7 @@ namespace cypress_dotnet_sdk.Cypress
 		/// A list of vendors undergoing certification. View a list of vendors - Vendors
 		/// </summary>
 		/// <param name="request">ApiRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.VendorsGetResponse> Get(ApiRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -476,15 +462,6 @@ namespace cypress_dotnet_sdk.Cypress
             var req = new HttpRequestMessage(HttpMethod.Post, url);
             req.Content = new ObjectContent(typeof(Models.VendorsPostRequestContent), vendorspostrequestcontent, new JsonMediaTypeFormatter());                           
 	        var response = await proxy.Client.SendAsync(req);
-			
-			if (proxy.SchemaValidation.Enabled)
-		    {
-				if(proxy.SchemaValidation.RaiseExceptions) 
-				{
-					await SchemaValidator.ValidateWithExceptionAsync(Models.VendorsPostResponse.GetSchema(response.StatusCode), response.Content);
-				}
-					
-			}
 
             return new Models.VendorsPostResponse  
                                             {
@@ -492,7 +469,7 @@ namespace cypress_dotnet_sdk.Cypress
                                                 RawHeaders = response.Headers, 
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid(Models.VendorsPostResponse.GetSchema(response.StatusCode), response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)
                                             };
 
         }
@@ -501,7 +478,7 @@ namespace cypress_dotnet_sdk.Cypress
 		/// A list of vendors undergoing certification. Create a new vendor - Vendors
 		/// </summary>
 		/// <param name="request">Models.VendorsPostRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.VendorsPostResponse> Post(Models.VendorsPostRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -521,14 +498,6 @@ namespace cypress_dotnet_sdk.Cypress
             if(request.Formatter == null)
                 request.Formatter = new JsonMediaTypeFormatter();
 	        var response = await proxy.Client.SendAsync(req);
-			if (proxy.SchemaValidation.Enabled && proxy.SchemaValidation.RaiseExceptions)
-            {
-				if(proxy.SchemaValidation.RaiseExceptions)
-				{
-					await SchemaValidator.ValidateWithExceptionAsync(Models.VendorsPostResponse.GetSchema(response.StatusCode), response.Content);
-				}
-				
-            }
             return new Models.VendorsPostResponse  
                                             {
                                                 RawContent = response.Content,
@@ -536,7 +505,7 @@ namespace cypress_dotnet_sdk.Cypress
 	                                            Formatters = responseFormatters,
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid(Models.VendorsPostResponse.GetSchema(response.StatusCode), response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)
                                             };
         }
 
@@ -565,6 +534,7 @@ namespace cypress_dotnet_sdk.Cypress
 					
 			}
 
+
             return new Models.VendorsGetByIdResponse  
                                             {
                                                 RawContent = response.Content,
@@ -580,7 +550,7 @@ namespace cypress_dotnet_sdk.Cypress
 		/// A Vendor undergoing certification. View information about a vendor - Vendor
 		/// </summary>
 		/// <param name="request">Models.VendorsGetByIdRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.VendorsGetByIdResponse> GetById(Models.VendorsGetByIdRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -794,6 +764,7 @@ namespace cypress_dotnet_sdk.Cypress
 					
 			}
 
+
             return new Models.ProductsProductIdProductTestsGetResponse  
                                             {
                                                 RawContent = response.Content,
@@ -809,7 +780,7 @@ namespace cypress_dotnet_sdk.Cypress
 		/// View list of a product&apos;s tests (One per measure for C1/C2, One for each C4 Filter) - Product Tests (Single Measure Testing and Filter Tests)
 		/// </summary>
 		/// <param name="request">Models.ProductsProductIdProductTestsGetRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.ProductsProductIdProductTestsGetResponse> Get(Models.ProductsProductIdProductTestsGetRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -855,7 +826,7 @@ namespace cypress_dotnet_sdk.Cypress
 
 
         /// <summary>
-		/// View a product test (such as a Single Measure Test or a C4 Filter)
+		/// View a product test (such as a Single Measure Test or a C4 Filter) - /{id}
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="product_id"></param>
@@ -880,6 +851,7 @@ namespace cypress_dotnet_sdk.Cypress
 					
 			}
 
+
             return new Models.ProductsProductIdProductTestsGetByIdResponse  
                                             {
                                                 RawContent = response.Content,
@@ -892,10 +864,10 @@ namespace cypress_dotnet_sdk.Cypress
         }
 
         /// <summary>
-		/// View a product test (such as a Single Measure Test or a C4 Filter)
+		/// View a product test (such as a Single Measure Test or a C4 Filter) - /{id}
 		/// </summary>
 		/// <param name="request">Models.ProductsProductIdProductTestsGetByIdRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.ProductsProductIdProductTestsGetByIdResponse> GetById(Models.ProductsProductIdProductTestsGetByIdRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -957,7 +929,7 @@ namespace cypress_dotnet_sdk.Cypress
 
 
         /// <summary>
-		/// List of testing tasks for a product ID
+		/// List of testing tasks for a product ID - /product_tests/{product_test_id}/tasks
 		/// </summary>
 		/// <param name="product_test_id"></param>
         public virtual async Task<Models.ProductTestsProductTestIdTasksGetResponse> Get(string product_test_id)
@@ -980,6 +952,7 @@ namespace cypress_dotnet_sdk.Cypress
 					
 			}
 
+
             return new Models.ProductTestsProductTestIdTasksGetResponse  
                                             {
                                                 RawContent = response.Content,
@@ -992,10 +965,10 @@ namespace cypress_dotnet_sdk.Cypress
         }
 
         /// <summary>
-		/// List of testing tasks for a product ID
+		/// List of testing tasks for a product ID - /product_tests/{product_test_id}/tasks
 		/// </summary>
 		/// <param name="request">Models.ProductTestsProductTestIdTasksGetRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.ProductTestsProductTestIdTasksGetResponse> Get(Models.ProductTestsProductTestIdTasksGetRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -1041,7 +1014,7 @@ namespace cypress_dotnet_sdk.Cypress
 
 
         /// <summary>
-		/// A single task for a product test such as a single C1 measure task or a Filter task
+		/// A single task for a product test such as a single C1 measure task or a Filter task - /{id}
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="product_test_id"></param>
@@ -1066,6 +1039,7 @@ namespace cypress_dotnet_sdk.Cypress
 					
 			}
 
+
             return new Models.ProductTestsProductTestIdTasksGetByIdResponse  
                                             {
                                                 RawContent = response.Content,
@@ -1078,10 +1052,10 @@ namespace cypress_dotnet_sdk.Cypress
         }
 
         /// <summary>
-		/// A single task for a product test such as a single C1 measure task or a Filter task
+		/// A single task for a product test such as a single C1 measure task or a Filter task - /{id}
 		/// </summary>
 		/// <param name="request">Models.ProductTestsProductTestIdTasksGetByIdRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.ProductTestsProductTestIdTasksGetByIdResponse> GetById(Models.ProductTestsProductTestIdTasksGetByIdRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -1166,6 +1140,7 @@ namespace cypress_dotnet_sdk.Cypress
 					
 			}
 
+
             return new Models.TasksTaskIdTestExecutionsGetResponse  
                                             {
                                                 RawContent = response.Content,
@@ -1181,7 +1156,7 @@ namespace cypress_dotnet_sdk.Cypress
 		/// View a list of test executions - Task
 		/// </summary>
 		/// <param name="request">Models.TasksTaskIdTestExecutionsGetRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.TasksTaskIdTestExecutionsGetResponse> Get(Models.TasksTaskIdTestExecutionsGetRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -1242,15 +1217,6 @@ namespace cypress_dotnet_sdk.Cypress
             var req = new HttpRequestMessage(HttpMethod.Post, url);
             req.Content = new StringContent(content);
 	        var response = await proxy.Client.SendAsync(req);
-			
-			if (proxy.SchemaValidation.Enabled)
-		    {
-				if(proxy.SchemaValidation.RaiseExceptions) 
-				{
-					await SchemaValidator.ValidateWithExceptionAsync(Models.TasksTaskIdTestExecutionsPostResponse.GetSchema(response.StatusCode), response.Content);
-				}
-					
-			}
 
             return new Models.TasksTaskIdTestExecutionsPostResponse  
                                             {
@@ -1258,7 +1224,7 @@ namespace cypress_dotnet_sdk.Cypress
                                                 RawHeaders = response.Headers, 
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid(Models.TasksTaskIdTestExecutionsPostResponse.GetSchema(response.StatusCode), response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)
                                             };
 
         }
@@ -1267,7 +1233,7 @@ namespace cypress_dotnet_sdk.Cypress
 		/// Upload a new test artifact - Task
 		/// </summary>
 		/// <param name="request">Models.TasksTaskIdTestExecutionsPostRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.TasksTaskIdTestExecutionsPostResponse> Post(Models.TasksTaskIdTestExecutionsPostRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -1293,14 +1259,6 @@ namespace cypress_dotnet_sdk.Cypress
             }
             req.Content = request.Content;
 	        var response = await proxy.Client.SendAsync(req);
-			if (proxy.SchemaValidation.Enabled && proxy.SchemaValidation.RaiseExceptions)
-            {
-				if(proxy.SchemaValidation.RaiseExceptions)
-				{
-					await SchemaValidator.ValidateWithExceptionAsync(Models.TasksTaskIdTestExecutionsPostResponse.GetSchema(response.StatusCode), response.Content);
-				}
-				
-            }
             return new Models.TasksTaskIdTestExecutionsPostResponse  
                                             {
                                                 RawContent = response.Content,
@@ -1308,13 +1266,13 @@ namespace cypress_dotnet_sdk.Cypress
 	                                            Formatters = responseFormatters,
                                                 StatusCode = response.StatusCode,
                                                 ReasonPhrase = response.ReasonPhrase,
-												SchemaValidation = new Lazy<SchemaValidationResults>(() => SchemaValidator.IsValid(Models.TasksTaskIdTestExecutionsPostResponse.GetSchema(response.StatusCode), response.Content), true)
+												SchemaValidation = new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)
                                             };
         }
 
 
         /// <summary>
-		/// View information about a test execution
+		/// View information about a test execution - /{id}
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="task_id"></param>
@@ -1339,6 +1297,7 @@ namespace cypress_dotnet_sdk.Cypress
 					
 			}
 
+
             return new Models.TasksTaskIdTestExecutionsGetByIdResponse  
                                             {
                                                 RawContent = response.Content,
@@ -1351,10 +1310,10 @@ namespace cypress_dotnet_sdk.Cypress
         }
 
         /// <summary>
-		/// View information about a test execution
+		/// View information about a test execution - /{id}
 		/// </summary>
 		/// <param name="request">Models.TasksTaskIdTestExecutionsGetByIdRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.TasksTaskIdTestExecutionsGetByIdResponse> GetById(Models.TasksTaskIdTestExecutionsGetByIdRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -1405,7 +1364,7 @@ namespace cypress_dotnet_sdk.Cypress
 
 
         /// <summary>
-		/// Delete a test execution
+		/// Delete a test execution - /{id}
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="task_id"></param>
@@ -1433,7 +1392,7 @@ namespace cypress_dotnet_sdk.Cypress
         }
 
         /// <summary>
-		/// Delete a test execution
+		/// Delete a test execution - /{id}
 		/// </summary>
 		/// <param name="request">Models.TasksTaskIdTestExecutionsDeleteRequest</param>
         public virtual async Task<ApiResponse> Delete(Models.TasksTaskIdTestExecutionsDeleteRequest request)
@@ -1488,7 +1447,7 @@ namespace cypress_dotnet_sdk.Cypress
 
 
         /// <summary>
-		/// List of measure in the bundle
+		/// List of measure in the bundle - /measures
 		/// </summary>
 		/// <param name="id"></param>
         public virtual async Task<Models.MeasuresGetResponse> Get(string id)
@@ -1511,6 +1470,7 @@ namespace cypress_dotnet_sdk.Cypress
 					
 			}
 
+
             return new Models.MeasuresGetResponse  
                                             {
                                                 RawContent = response.Content,
@@ -1523,10 +1483,10 @@ namespace cypress_dotnet_sdk.Cypress
         }
 
         /// <summary>
-		/// List of measure in the bundle
+		/// List of measure in the bundle - /measures
 		/// </summary>
 		/// <param name="request">Models.MeasuresGetRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.MeasuresGetResponse> Get(Models.MeasuresGetRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -1591,7 +1551,7 @@ namespace cypress_dotnet_sdk.Cypress
 
 
         /// <summary>
-		/// Bundles installed on the system. View a list of all installed bundles
+		/// Bundles installed on the system. View a list of all installed bundles - /bundles
 		/// </summary>
         public virtual async Task<Models.BundlesGetResponse> Get()
         {
@@ -1612,6 +1572,7 @@ namespace cypress_dotnet_sdk.Cypress
 					
 			}
 
+
             return new Models.BundlesGetResponse  
                                             {
                                                 RawContent = response.Content,
@@ -1624,10 +1585,10 @@ namespace cypress_dotnet_sdk.Cypress
         }
 
         /// <summary>
-		/// Bundles installed on the system. View a list of all installed bundles
+		/// Bundles installed on the system. View a list of all installed bundles - /bundles
 		/// </summary>
 		/// <param name="request">ApiRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.BundlesGetResponse> Get(ApiRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -1666,7 +1627,7 @@ namespace cypress_dotnet_sdk.Cypress
 
 
         /// <summary>
-		/// Annual Update Bundle. View a list of all installed bundles
+		/// Annual Update Bundle. View a list of all installed bundles - /{id}
 		/// </summary>
 		/// <param name="id"></param>
         public virtual async Task<Models.BundlesGetByIdResponse> GetById(string id)
@@ -1689,6 +1650,7 @@ namespace cypress_dotnet_sdk.Cypress
 					
 			}
 
+
             return new Models.BundlesGetByIdResponse  
                                             {
                                                 RawContent = response.Content,
@@ -1701,10 +1663,10 @@ namespace cypress_dotnet_sdk.Cypress
         }
 
         /// <summary>
-		/// Annual Update Bundle. View a list of all installed bundles
+		/// Annual Update Bundle. View a list of all installed bundles - /{id}
 		/// </summary>
 		/// <param name="request">Models.BundlesGetByIdRequest</param>
-		/// <param name="responseFormatters">response formmaters</param>
+		/// <param name="responseFormatters">response formatters</param>
         public virtual async Task<Models.BundlesGetByIdResponse> GetById(Models.BundlesGetByIdRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
         {
 
@@ -2031,6 +1993,14 @@ namespace cypress_dotnet_sdk.Cypress.Models
         public bool? Duplicate_records { get; set; }
 
 
+		[JsonProperty("shift_records")]
+        public bool? Shift_records { get; set; }
+
+
+		[JsonProperty("measure_selection")]
+        public string Measure_selection { get; set; }
+
+
 		[JsonProperty("measure_ids")]
         public IList<string> Measure_ids { get; set; }
 
@@ -2249,6 +2219,14 @@ namespace cypress_dotnet_sdk.Cypress.Models
         public bool? Duplicate_records { get; set; }
 
 
+		[JsonProperty("shift_recods")]
+        public bool? Shift_recods { get; set; }
+
+
+		[JsonProperty("measure_selection")]
+        public string Measure_selection { get; set; }
+
+
 		[JsonProperty("measure_ids")]
         public IList<string> Measure_ids { get; set; }
 
@@ -2308,6 +2286,14 @@ namespace cypress_dotnet_sdk.Cypress.Models
 
 		[JsonProperty("duplicate_records")]
         public bool? Duplicate_records { get; set; }
+
+
+		[JsonProperty("shift_records")]
+        public bool? Shift_records { get; set; }
+
+
+		[JsonProperty("measure_selection")]
+        public string Measure_selection { get; set; }
 
 
 		[JsonProperty("measure_ids")]
@@ -2378,6 +2364,14 @@ namespace cypress_dotnet_sdk.Cypress.Models
 
 		[JsonProperty("duplicate_records")]
         public bool? Duplicate_records { get; set; }
+
+
+		[JsonProperty("shift_records")]
+        public bool? Shift_records { get; set; }
+
+
+		[JsonProperty("measure_selection")]
+        public string Measure_selection { get; set; }
 
 
 		[JsonProperty("measure_ids")]
@@ -2782,7 +2776,7 @@ namespace cypress_dotnet_sdk.Cypress.Models
     {
         static readonly Dictionary<HttpStatusCode, string> schemas = new Dictionary<HttpStatusCode, string>
         {
-			{ (HttpStatusCode)201, "{	\"title\": \"Product\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"version\": {			\"type\": \"string\"		},		\"description\": {			\"type\": \"string\"		},		\"bundle_id\": {			\"type\": \"string\"		},		\"c1_test\": {			\"type\": \"boolean\"		},		\"c2_test\": {			\"type\": \"boolean\"		},		\"c3_test\": {			\"type\": \"boolean\"		},		\"c4_test\": {			\"type\": \"boolean\"		},		\"randomize_records\": {			\"type\": \"boolean\"		},		\"duplicate_records\": {			\"type\": \"boolean\"		},		\"measure_ids\": {			\"type\": \"array\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/vendors/{vendor_id}/products/{id}\"	},	{		\"rel\": \"product_tests\",		\"href\": \"/products/{id}/product_tests\"	},	{		\"rel\": \"patients\",		\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"	}]}"},
+			{ (HttpStatusCode)201, "{	\"title\": \"Product\",	\"id\": \"http://cypress.healthit.gov/schemas/product.json\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"name\": {			\"type\": \"string\"		},		\"version\": {			\"type\": \"string\"		},		\"description\": {			\"type\": \"string\"		},		\"bundle_id\": {			\"type\": \"string\"		},		\"c1_test\": {			\"type\": \"boolean\"		},		\"c2_test\": {			\"type\": \"boolean\"		},		\"c3_test\": {			\"type\": \"boolean\"		},		\"c4_test\": {			\"type\": \"boolean\"		},		\"randomize_records\": {			\"type\": \"boolean\"		},		\"duplicate_records\": {			\"type\": \"boolean\"		},        \"shift_records\": {            \"type\": \"boolean\"        },        \"measure_selection\": {            \"type\": \"string\"        },		\"measure_ids\": {			\"type\": \"array\"		},		\"created_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"updated_at\": {			\"type\": \"string\",			\"format\": \"date-time\"		},		\"links\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"rel\": {						\"type\": \"string\"					},					\"href\": {						\"type\": \"string\"					}				}			}		}	},	\"links\": [{		\"rel\": \"self\",		\"href\": \"/vendors/{vendor_id}/products/{id}\"	},	{		\"rel\": \"product_tests\",		\"href\": \"/products/{id}/product_tests\"	},	{		\"rel\": \"patients\",		\"href\": \"/vendors/{vendor_id}/products/{id}/patients\"	}]}"},
 			{ (HttpStatusCode)422, "{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}"},
 		};
         
@@ -3404,7 +3398,6 @@ namespace cypress_dotnet_sdk.Cypress.Models
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }
-
 		        return typedContent;
 	        }
 	    }
@@ -3507,7 +3500,6 @@ namespace cypress_dotnet_sdk.Cypress.Models
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }
-
 		        return typedContent;
 	        }
 	    }
@@ -3556,7 +3548,6 @@ namespace cypress_dotnet_sdk.Cypress.Models
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }
-
 		        return typedContent;
 	        }
 	    }
@@ -3659,7 +3650,6 @@ namespace cypress_dotnet_sdk.Cypress.Models
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }
-
 		        return typedContent;
 	        }
 	    }
@@ -3708,7 +3698,6 @@ namespace cypress_dotnet_sdk.Cypress.Models
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }
-
 		        return typedContent;
 	        }
 	    }
@@ -3757,7 +3746,6 @@ namespace cypress_dotnet_sdk.Cypress.Models
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }
-
 		        return typedContent;
 	        }
 	    }
@@ -3806,7 +3794,6 @@ namespace cypress_dotnet_sdk.Cypress.Models
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }
-
 		        return typedContent;
 	        }
 	    }
@@ -3855,7 +3842,6 @@ namespace cypress_dotnet_sdk.Cypress.Models
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }
-
 		        return typedContent;
 	        }
 	    }
@@ -3904,7 +3890,6 @@ namespace cypress_dotnet_sdk.Cypress.Models
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }
-
 		        return typedContent;
 	        }
 	    }
@@ -4007,7 +3992,6 @@ namespace cypress_dotnet_sdk.Cypress.Models
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }
-
 		        return typedContent;
 	        }
 	    }
@@ -4056,7 +4040,6 @@ namespace cypress_dotnet_sdk.Cypress.Models
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }
-
 		        return typedContent;
 	        }
 	    }
@@ -4105,7 +4088,6 @@ namespace cypress_dotnet_sdk.Cypress.Models
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }
-
 		        return typedContent;
 	        }
 	    }
@@ -4154,7 +4136,6 @@ namespace cypress_dotnet_sdk.Cypress.Models
 		        
 		            typedContent = task.GetAwaiter().GetResult();
                 }
-
 		        return typedContent;
 	        }
 	    }
