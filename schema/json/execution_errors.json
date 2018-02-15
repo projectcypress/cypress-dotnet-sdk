@@ -15,6 +15,9 @@
 			"file_name": {
 				"type": "string"
 			},
+            "cms": {
+                "type": "boolean"
+            },           
 			"location": {
 				"type": "string"
 			},
