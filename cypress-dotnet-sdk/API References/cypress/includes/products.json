@@ -39,7 +39,7 @@
             "shift_recods": {
                 "type": "boolean"
             },
-            "measure_selection": {
+            "cert_edition": {
                 "type": "string"            
             },
 			"measure_ids": {
