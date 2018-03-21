@@ -1,7 +1,7 @@
 <#
 // title: Client Proxy T4 Template
-// hash: f09da24daaa5158ff2f212066f1680f1
-// version: 4.1
+// hash: 69b453349bafcc860081d8e8e4400167
+// version: 5.0
 #>
 <#@ template debug="false" hostspecific="false" language="C#" #>
 <#@ assembly name="$(binDir)RAML.Parser.dll" #>
@@ -177,7 +177,7 @@ namespace $(namespace)
             string validationCall = "new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)";
             string validationWithException = "";
 
-            if (method.ResponseType != "ApiResponse" && method.ReturnTypeObject != null)
+            if (method.ResponseType != "ApiResponse" && method.ReturnTypeObject != null && !string.IsNullOrWhiteSpace(method.ReturnTypeObject.JSONSchema))
 			{
                 var jsonSchema = !method.ReturnTypeObject.IsMultiple ? 
 					String.Format("\"{0}\"", method.ReturnTypeObject.JSONSchema) : 
@@ -195,6 +195,7 @@ namespace $(namespace)
 				}
 					
 			}
+
 <#
 			}
 #>
@@ -368,7 +369,7 @@ namespace $(namespace)
 #>
 	        var response = await proxy.Client.SendAsync(req);
 <#
-            if (method.ResponseType != "ApiResponse")
+            if (method.ResponseType != "ApiResponse" && method.ReturnTypeObject != null && !string.IsNullOrWhiteSpace(method.ReturnTypeObject.JSONSchema))
 			{
 #>
 			if (proxy.SchemaValidation.Enabled && proxy.SchemaValidation.RaiseExceptions)
@@ -560,6 +561,9 @@ foreach (var apiObject in model.Objects.Where(o => string.IsNullOrWhiteSpace(o.G
     if(apiObject.IsArray && apiObject.Type != null)
         continue;
 
+    if(apiObject.IsScalar)
+        continue;
+
 	if (!string.IsNullOrWhiteSpace(apiObject.Description))
 	{
 #>
@@ -569,7 +573,7 @@ foreach (var apiObject in model.Objects.Where(o => string.IsNullOrWhiteSpace(o.G
 <#
 	}	
 	
-	if(!apiObject.IsMultiple && apiObject.BaseClass != null) 
+	if(!apiObject.IsMultiple && !string.IsNullOrWhiteSpace(apiObject.BaseClass)) 
 	{
 #>
     public partial class <#= apiObject.Name #> <#= " : " +  apiObject.BaseClass #>
@@ -618,6 +622,8 @@ foreach (var apiObject in model.Objects.Where(o => string.IsNullOrWhiteSpace(o.G
         }
 <#
 	}
+
+
 
 	foreach (var property in apiObject.Properties.Where(p => p != null && p.Type != null && p.Name != null).ToArray())
 	{
@@ -985,13 +991,62 @@ foreach (var apiObject in model.ApiResponseObjects)
                 }
                 else
                 {
+<#
+        if(apiObject.IsUnionType)
+        {
+#>
+                    typedContent = new <#= body.Type.StartsWith("IList") ? body.Type.Substring(1) : body.Type #>();
+
+                    try
+                    {
+                        var task = Formatters != null && Formatters.Any()
+                                    ? RawContent.ReadAsAsync<<#= body.Type.StartsWith("IList") ? body.Type.Substring(1) : body.Type #>>(Formatters).ConfigureAwait(false)
+                                    : RawContent.ReadAsAsync<<#= body.Type.StartsWith("IList") ? body.Type.Substring(1) : body.Type #>>().ConfigureAwait(false);
+
+                        typedContent = task.GetAwaiter().GetResult();
+                        return typedContent;
+                    }
+                    catch (JsonSerializationException) { }
+
+                    var type = typedContent.GetType().IsGenericType
+                        ? typedContent.GetType().GetGenericArguments()[0]
+                        : typedContent.GetType();
+
+                    foreach (var prop in type.GetProperties())
+                    {
+                        try
+                        {
+                            var propertyType = prop.PropertyType;
+                            if (propertyType.IsInterface) // get List concrete type instead of interface
+                            {
+                                var typeName = "System.Collections.Generic.List`1[[" + propertyType.GetGenericArguments()[0] + "," + this.GetType().Assembly.FullName + "]]";
+                                propertyType = Type.GetType(typeName);
+                            }
+                            var task = Formatters != null && Formatters.Any()
+                                        ? RawContent.ReadAsAsync(propertyType, Formatters).ConfigureAwait(false)
+                                        : RawContent.ReadAsAsync(propertyType).ConfigureAwait(false);
+
+                            var content = task.GetAwaiter().GetResult();
+                            if(content == null)
+                                continue;
+
+                            prop.SetValue(typedContent, content);
+                            return typedContent;
+                        }
+                        catch (JsonSerializationException) { }
+                    }
+<#
+        } else {
+#>
                     var task =  Formatters != null && Formatters.Any() 
                                 ? RawContent.ReadAsAsync<<#= body.Type #>>(Formatters).ConfigureAwait(false)
                                 : RawContent.ReadAsAsync<<#= body.Type #>>().ConfigureAwait(false);
 		        
 		            typedContent = task.GetAwaiter().GetResult();
+<#      
+        } 
+#>
                 }
-
 		        return typedContent;
 	        }
 	    }
@@ -1022,7 +1077,17 @@ foreach (var apiEnum in model.Enums)
 	
 	public enum <#= apiEnum.Name #>
 	{
-		<#= string.Join(", ", apiEnum.Values) #>
+<#
+	var i = 1;
+	foreach (var property in apiEnum.Values)
+	{
+#>
+		[JsonProperty("<#= property.OriginalName #>")]
+		<#= property.Name #><#= i < apiEnum.Values.Count() ? "," : string.Empty #>
+<#	
+		i++;
+	}
+#>
     }
 
 <#
@@ -1031,7 +1096,7 @@ foreach (var apiEnum in model.Enums)
 
 	if (model.Warnings.Any()){
 #>
-    // Unable to parse the following Schemas. Please note that JSON Schema version 4 is not supported
+    // Unable to parse the following Schemas. Please note that JSON Schema version 4 is partially supported
 <#
 		foreach (var warning in model.Warnings)
 		{

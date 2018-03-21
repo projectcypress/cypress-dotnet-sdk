@@ -21,24 +21,24 @@ baseUriParameters:
       200:
         body:
           application/json:
-            schema: !include includes\vendors.json
+            schema: !include includes/vendors.json
   post:
     description: Create a new vendor
     body:
       application/json:
-        schema: !include includes\vendor.json
+        schema: !include includes/vendor.json
       application/xml:
     responses:
       201:
         description: Successfully created a new vendor
         body:
           application/json:
-            schema: !include includes\vendor.json
+            schema: !include includes/vendor.json
       422:
         description: Invalid vendor
         body:
           application/json:
-            schema: !include includes\errors.json
+            schema: !include includes/errors.json
   /{id}:
     displayName: Vendor
     description: A Vendor undergoing certification
@@ -53,12 +53,12 @@ baseUriParameters:
           description: Vendor object in JSON/XML
           body:
             application/json:
-              schema: !include includes\vendor.json
+              schema: !include includes/vendor.json
     put:
       description: Update information about a vendor
       body:
         application/json:
-          schema: !include includes\vendor.json
+          schema: !include includes/vendor.json
         application/xml:
       responses:
         200:
@@ -77,24 +77,24 @@ baseUriParameters:
           200:
             body:
               application/json:
-                schema: !include includes\products.json
+                schema: !include includes/products.json
       post:
         description: Create a new product for this vendor
         body:
           application/json:
-            schema: !include includes\product.json
+            schema: !include includes/product.json
           application/xml:
         responses:
           201:
             description: Product has been created
             body:
               application/json:
-                schema: !include includes\product.json
+                schema: !include includes/product.json
           422:
             description: Invalid Product
             body:
               application/json:
-                schema: !include includes\errors.json
+                schema: !include includes/errors.json
       /{product_id}:
         displayName: Product
         description: Product undergoing certification testing
@@ -109,7 +109,7 @@ baseUriParameters:
               description: Product is available for testing
               body:
                 application/json:
-                  schema: !include includes\product.json
+                  schema: !include includes/product.json
         delete:
           description: Delete a product
 /products/{product_id}/product_tests:
@@ -125,7 +125,7 @@ baseUriParameters:
         description: Product is available for testing
         body:
           application/json:
-            schema: !include includes\product_tests.json
+            schema: !include includes/product_tests.json
   /{id}:
     uriParameters:
       id:
@@ -138,7 +138,7 @@ baseUriParameters:
           description: Product is available for testing
           body:
             application/json:
-              schema: !include includes\product_test.json
+              schema: !include includes/product_test.json
 /product_tests/{product_test_id}/tasks:
   uriParameters:
     product_test_id:
@@ -151,7 +151,7 @@ baseUriParameters:
         description: List of tasks for a product test
         body:
           application/json:
-            schema: !include includes\tasks.json
+            schema: !include includes/tasks.json
   /{id}:
     uriParameters:
       id:
@@ -163,7 +163,7 @@ baseUriParameters:
         200:
           body:
             application/json:
-              schema: !include includes\task.json
+              schema: !include includes/task.json
 /tasks/{task_id}/test_executions:
   displayName: Task
   uriParameters:
@@ -176,7 +176,7 @@ baseUriParameters:
       200:
         body:
           application/json:
-            schema: !include includes\test_executions.json
+            schema: !include includes/test_executions.json
   post:
     description: Upload a new test artifact
     body:
@@ -191,12 +191,12 @@ baseUriParameters:
         description: File Uploaded Successfully. Cypress is checking data for accuracy and correctness
         body:
           application/json:
-            schema: !include includes\test_execution.json
+            schema: !include includes/test_execution.json
       422:
         description: File uploaded is not processable by Cypress
         body:
           application/json:
-            schema: !include includes\errors.json
+            schema: !include includes/errors.json
   /{id}:
     uriParameters:
       id:
@@ -208,7 +208,7 @@ baseUriParameters:
         200:
           body:
             application/json:
-              schema: !include includes\test_execution.json
+              schema: !include includes/test_execution.json
     delete:
       description: Delete a test execution
       responses:
@@ -221,7 +221,7 @@ baseUriParameters:
       200:
         body:
           application/json:
-            schema: !include includes\bundles.json
+            schema: !include includes/bundles.json
   /{id}:
     description: Annual Update Bundle
     uriParameters:
@@ -233,7 +233,7 @@ baseUriParameters:
         200:
           body:
             application/json:
-              schema: !include includes\bundle.json
+              schema: !include includes/bundle.json
     /measures:
       get:
         description: List of measure in the bundle
@@ -241,4 +241,4 @@ baseUriParameters:
           200:
             body:
                application/json:
-                schema: !include includes\measures.json                
+                schema: !include includes/measures.json                
