@@ -16,7 +16,6 @@
 
 ### Required libraries:
 Nuget:
- - Json.NET
  - Newtonsoft.Json
  - RAML.Api.Core (v0.10.1)
  - Microsoft ASP.NET Web API 2.2 Client Libraries (Microsoft.AspNet.WebApi.Client)
