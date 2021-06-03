@@ -1768,7 +1768,10 @@ namespace cypress_dotnet_sdk.Cypress
 			};
         }
 
-        
+        public virtual ProductsProductIdProductTests ProductsProductIdProductTests
+        {
+            get { return new ProductsProductIdProductTests(this); }
+        }
 
         public virtual Vendors Vendors
         {
@@ -1776,9 +1779,8 @@ namespace cypress_dotnet_sdk.Cypress
         }
                 
 
-        public virtual ProductsProductIdProductTests ProductsProductIdProductTests
-        {
-            get { return new ProductsProductIdProductTests(this); }
+        public virtual QrdaValidations QrdaValidations        {
+            get { return new QrdaValidations(this); }
         }
                 
 
@@ -4145,5 +4147,242 @@ namespace cypress_dotnet_sdk.Cypress.Models
 
     } // end class
 
+    public partial class QrdaValidations
+    {
+        private readonly CypressClient proxy;
 
+        internal QrdaValidations(CypressClient proxy)
+        {
+            this.proxy = proxy;
+        }
+
+
+        /// <summary>
+		/// Upload a new test artifact - Task
+		/// </summary>
+		/// <param name="content"></param>
+		/// <param name="task_id"></param>
+        public virtual async Task<Models.QrdaValidationsPostResponse> Post(string content, string year, string qrda_type, string implementation_guide)
+        {
+
+            var url = "qrda_validation/{year}/{qrda_type}/{implementation_guide}";
+            url = url.Replace("{year}", year.ToString());
+            url = url.Replace("{qrda_type}", qrda_type.ToString());
+            url = url.Replace("{implementation_guide}", implementation_guide.ToString());
+
+            url = url.Replace("?&", "?");
+
+            var req = new HttpRequestMessage(HttpMethod.Post, url);
+            req.Content = new StringContent(content);
+            var response = await proxy.Client.SendAsync(req);
+
+            return new Models.QrdaValidationsPostResponse
+            {
+                RawContent = response.Content,
+                RawHeaders = response.Headers,
+                StatusCode = response.StatusCode,
+                ReasonPhrase = response.ReasonPhrase
+                //SchemaValidation = new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)
+            };
+
+        }
+
+        /// <summary>
+		/// Upload a new test artifact - Task
+		/// </summary>
+		/// <param name="request">Models.TasksTaskIdTestExecutionsPostRequest</param>
+		/// <param name="responseFormatters">response formatters</param>
+        public virtual async Task<Models.QrdaValidationsPostResponse> Post(Models.QrdaValidationsPostRequest request, IEnumerable<MediaTypeFormatter> responseFormatters = null)
+        {
+
+            var url = "qrda_validation/{year}/{qrda_type}/{implementation_guide}";
+            if (request.UriParameters == null)
+                throw new InvalidOperationException("Uri Parameters cannot be null");
+
+            if (request.UriParameters.Year == null)
+                throw new InvalidOperationException("Uri Parameter year cannot be null");
+
+            if (request.UriParameters.Qrda_type == null)
+                throw new InvalidOperationException("Uri Parameter qrda_type cannot be null");
+
+            if (request.UriParameters.Implementation_guide == null)
+                throw new InvalidOperationException("Uri Parameter implementation_guide cannot be null");
+
+            url = url.Replace("{year}", request.UriParameters.Year.ToString());
+            url = url.Replace("{qrda_type}", request.UriParameters.Qrda_type.ToString());
+            url = url.Replace("{implementation_guide}", request.UriParameters.Implementation_guide.ToString());
+
+            url = url.Replace("?&", "?");
+
+            var req = new HttpRequestMessage(HttpMethod.Post, url);
+
+            if (request.RawHeaders != null)
+            {
+                foreach (var header in request.RawHeaders)
+                {
+                    req.Headers.TryAddWithoutValidation(header.Key, string.Join(",", header.Value));
+                }
+            }
+            req.Content = request.Content;
+            var response = await proxy.Client.SendAsync(req);
+            return new Models.QrdaValidationsPostResponse
+            {
+                RawContent = response.Content,
+                RawHeaders = response.Headers,
+                Formatters = responseFormatters,
+                StatusCode = response.StatusCode,
+                ReasonPhrase = response.ReasonPhrase,
+                SchemaValidation = new Lazy<SchemaValidationResults>(() => new SchemaValidationResults(true), true)
+            };
+        }
+    }
+
+    public partial class QrdaValidationsPostRequest : ApiRequest
+    {
+        public QrdaValidationsPostRequest(QrdaValidationsUriParameters UriParameters, HttpContent Content = null, MediaTypeFormatter Formatter = null)
+        {
+            this.Content = Content;
+            this.Formatter = Formatter;
+            this.UriParameters = UriParameters;
+        }
+
+
+        /// <summary>
+        /// Request content
+        /// </summary>
+        public HttpContent Content { get; set; }
+
+        /// <summary>
+        /// Request formatter
+        /// </summary>
+        public MediaTypeFormatter Formatter { get; set; }
+
+        /// <summary>
+        /// Request Uri Parameters
+        /// </summary>
+        public QrdaValidationsUriParameters UriParameters { get; set; }
+
+    } // end class
+
+    public partial class QrdaValidationsUriParameters
+    {
+
+        [JsonProperty("year")]
+        public string Year { get; set; }
+
+        [JsonProperty("qrda_type")]
+        public string Qrda_type { get; set; }
+
+        [JsonProperty("implementation_guide")]
+        public string Implementation_guide { get; set; }
+
+    } // end class
+
+    public partial class QrdaValidationsPostResponse : ApiResponse
+    {
+
+        private MultipleQrdaValidationsPost typedContent;
+        /// <summary>
+        /// Typed response content
+        /// </summary>
+        public MultipleQrdaValidationsPost Content
+        {
+            get
+            {
+                if (typedContent != null)
+                    return typedContent;
+
+                typedContent = new MultipleQrdaValidationsPost();
+
+                IEnumerable<string> values = new List<string>();
+                if (RawContent != null && RawContent.Headers != null)
+                    RawContent.Headers.TryGetValues("Content-Type", out values);
+
+                if (values.Any(hv => hv.ToLowerInvariant().Contains("xml")) &&
+                    !values.Any(hv => hv.ToLowerInvariant().Contains("json")))
+                {
+                    var task = RawContent.ReadAsStreamAsync();
+
+                    var xmlStream = task.GetAwaiter().GetResult();
+                    var content = new XmlSerializer(typedContent.GetTypeByStatusCode(StatusCode)).Deserialize(xmlStream);
+                    typedContent.SetPropertyByStatusCode(StatusCode, content);
+                }
+                else
+                {
+                    var task = Formatters != null && Formatters.Any()
+                                ? RawContent.ReadAsAsync(typedContent.GetTypeByStatusCode(StatusCode), Formatters).ConfigureAwait(false)
+                                : RawContent.ReadAsAsync(typedContent.GetTypeByStatusCode(StatusCode)).ConfigureAwait(false);
+
+                    var content = task.GetAwaiter().GetResult();
+                    typedContent.SetPropertyByStatusCode(StatusCode, content);
+                }
+
+                return typedContent;
+            }
+        }
+
+        public static string GetSchema(HttpStatusCode statusCode)
+        {
+            return MultipleQrdaValidationsPost.GetSchema(statusCode);
+        }
+
+    } // end class
+    public partial class MultipleQrdaValidationsPost : ApiMultipleResponse
+    {
+        static readonly Dictionary<HttpStatusCode, string> schemas = new Dictionary<HttpStatusCode, string>
+        {
+            { (HttpStatusCode)201, "{	\"title\": \"QRDA Validations\",	\"id\": \"http://cypress.healthit.gov/schemas/qrda-validation.json#\",	\"$schema\": \"http://json-schema.org/schema#\",	\"type\": \"object\",	\"properties\": {		\"validator\": {			\"type\": \"string\"		},		\"path\": {			\"type\": \"string\"		},		\"execution_errors\": {			\"type\": \"array\",			\"items\": {				\"type\": \"object\",				\"properties\": {					\"message\": {						\"type\": \"string\"					},					\"msg_type\": {						\"type\": \"string\"					},					\"file_name\": {						\"type\": \"string\"					},					\"location\": {						\"type\": \"string\"					},					\"validator\": {						\"type\": \"string\"					}				}			}		},		}"},
+            { (HttpStatusCode)422, "{  \"title\": \"Errors\",  \"id\": \"http://cypress.healthit.gov/schemas/errors.json\",  \"$schema\": \"http://json-schema.org/schema#\",  \"type\": \"object\",  \"properties\": {    \"errors\": {      \"type\": \"array\",      \"items\": {        \"type\": \"object\",        \"properties\": {          \"field\": {            \"type\": \"string\"          },          \"messages\": {            \"type\": \"array\",            \"items\": { \"type\" : \"string\" }          }        }      }    }  }}"},
+        };
+
+        public static string GetSchema(HttpStatusCode statusCode)
+        {
+            return schemas.ContainsKey(statusCode) ? schemas[statusCode] : string.Empty;
+        }
+
+        public MultipleQrdaValidationsPost()
+        {
+            names.Add((HttpStatusCode)201, "QrdaValidationsPostCreatedResponseContent");
+            types.Add((HttpStatusCode)201, typeof(QrdaValidationsPostCreatedResponseContent));
+            names.Add((HttpStatusCode)422, "QrdaValidationsPost422ResponseContent");
+            types.Add((HttpStatusCode)422, typeof(QrdaValidationsPost422ResponseContent));
+        }
+
+        /// <summary>
+        /// File Uploaded Successfully. Cypress is checking data for accuracy and correctness 
+        /// </summary>
+        public QrdaValidationsPostCreatedResponseContent QrdaValidationsPostCreatedResponseContent { get; set; }
+
+
+        /// <summary>
+        /// File uploaded is not processable by Cypress 
+        /// </summary>
+        public QrdaValidationsPost422ResponseContent QrdaValidationsPost422ResponseContent { get; set; }
+
+
+    } // end class
+    public partial class QrdaValidationsPostCreatedResponseContent
+    {
+
+        [JsonProperty("validator")]
+        public string Validator { get; set; }
+
+
+        [JsonProperty("execution_errors")]
+        public IList<ExecutionErrors> Execution_errors { get; set; }
+
+
+        [JsonProperty("path")]
+        public string Path { get; set; }
+
+    } // end class
+
+    public partial class QrdaValidationsPost422ResponseContent
+    {
+
+        [JsonProperty("errors")]
+        public IList<Errors> Errors { get; set; }
+
+
+    } // end class
 } // end Models namespace
