@@ -52,7 +52,7 @@ Console.WriteLine(cypress_version.Content.Version);
 ```csharp
 string year = "2022";
 string qrda_type = "qrdaIII";
-string implmentation_guide = "hl7";
+string implementation_guide = "hl7";
 
 var postContent = new MultipartFormDataContent();
 
@@ -60,7 +60,7 @@ var fileContent = File.ReadAllBytes("C:\\Users\\jsmith\\Desktop\\Sample_QRDA_III
 postContent.Add(new ByteArrayContent(fileContent), "file", "Sample_QRDA_III.xml");
 
 var submitQrdaValidationRequest =
-	new QrdaValidationsPostRequest(new QrdaValidationsUriParameters { Year = year, Qrda_type = qrda_type, Implementation_guide = implmentation_guide },
+	new QrdaValidationsPostRequest(new QrdaValidationsUriParameters { Year = year, Qrda_type = qrda_type, Implementation_guide = implementation_guide },
 		postContent);
 
 var validationResults = await client.QrdaValidations.Post(submitQrdaValidationRequest);
