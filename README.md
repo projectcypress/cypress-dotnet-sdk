@@ -40,14 +40,14 @@ httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTyp
 CypressClient client = new CypressClient(httpClient);
 ```
 
-### Getting the Cypress Version
+### Getting the Cypress Version (Endpoint now available in Cypress 6.2)
 
 ```csharp
 var cypress_version = await client.CypressVersion.Get();
 Console.WriteLine(cypress_version.Content.Version);
 ```
 
-### Validating a QRDA file
+### Validating a QRDA file (Endpoint now available in Cypress 6.2)
 
 ```csharp
 string year = "2022";
