@@ -1782,7 +1782,11 @@ namespace cypress_dotnet_sdk.Cypress
         public virtual QrdaValidations QrdaValidations        {
             get { return new QrdaValidations(this); }
         }
-                
+
+        public virtual CypressVersion CypressVersion
+        {
+            get { return new CypressVersion(this); }
+        }
 
         public virtual ProductTestsProductTestIdTasks ProductTestsProductTestIdTasks
         {
@@ -4383,6 +4387,85 @@ namespace cypress_dotnet_sdk.Cypress.Models
         [JsonProperty("errors")]
         public IList<Errors> Errors { get; set; }
 
+
+    } // end class
+
+    public partial class CypressVersion
+    {
+        private readonly CypressClient proxy;
+
+        internal CypressVersion(CypressClient proxy)
+        {
+            this.proxy = proxy;
+        }
+
+        /// <summary>
+		/// A list of vendors undergoing certification. View a list of vendors - Vendors
+		/// </summary>
+        public virtual async Task<Models.VersionGetResponse> Get()
+        {
+
+            var url = "version";
+
+            url = url.Replace("?&", "?");
+
+            var req = new HttpRequestMessage(HttpMethod.Get, url);
+            var response = await proxy.Client.SendAsync(req);
+
+            return new Models.VersionGetResponse
+            {
+                RawContent = response.Content,
+                RawHeaders = response.Headers,
+                StatusCode = response.StatusCode,
+                ReasonPhrase = response.ReasonPhrase
+            };
+        }
+    }
+
+    public partial class VersionGetResponse : ApiResponse
+    {
+
+
+        private VersionGetOKResponseContent typedContent;
+        /// <summary>
+        /// Typed Response content
+        /// </summary>
+        public VersionGetOKResponseContent Content
+        {
+            get
+            {
+                if (typedContent != null)
+                    return typedContent;
+
+                IEnumerable<string> values = new List<string>();
+                if (RawContent != null && RawContent.Headers != null)
+                    RawContent.Headers.TryGetValues("Content-Type", out values);
+
+                if (values.Any(hv => hv.ToLowerInvariant().Contains("xml")) &&
+                    !values.Any(hv => hv.ToLowerInvariant().Contains("json")))
+                {
+                    var task = RawContent.ReadAsStreamAsync();
+
+                    var xmlStream = task.GetAwaiter().GetResult();
+                    typedContent = (VersionGetOKResponseContent)new XmlSerializer(typeof(VersionGetOKResponseContent)).Deserialize(xmlStream);
+                }
+                else
+                {
+                    var task = Formatters != null && Formatters.Any()
+                                ? RawContent.ReadAsAsync<VersionGetOKResponseContent>(Formatters).ConfigureAwait(false)
+                                : RawContent.ReadAsAsync<VersionGetOKResponseContent>().ConfigureAwait(false);
+
+                    typedContent = task.GetAwaiter().GetResult();
+                }
+                return typedContent;
+            }
+        }
+    } // end class
+    public partial class VersionGetOKResponseContent
+    {
+
+        [JsonProperty("version")]
+        public string Version { get; set; }
 
     } // end class
 } // end Models namespace
