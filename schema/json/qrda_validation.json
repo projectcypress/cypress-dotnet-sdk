@@ -1,0 +1,37 @@
+{
+	"title": "QRDA Validation",
+	"id": "http://cypress.healthit.gov/schemas/qrda_validation.json#",
+	"$schema": "http://json-schema.org/schema#",
+	"type": "object",
+	"properties": {
+		"validator": {
+			"type": "string"
+		},
+		"execution_errors": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+					"msg_type": {
+						"type": "string"
+					},
+					"file_name": {
+						"type": "string"
+					},
+					"location": {
+						"type": "string"
+					},
+					"validator": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"path": {
+			"type": "string"
+		}
+	}
+}

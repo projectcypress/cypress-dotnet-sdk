@@ -16,8 +16,8 @@
 
 ### Required libraries:
 Nuget:
- - Json.NET
- - RAML.Api.Core
+ - Newtonsoft.Json
+ - RAML.Api.Core (v0.10.1)
  - Microsoft ASP.NET Web API 2.2 Client Libraries (Microsoft.AspNet.WebApi.Client)
 
 Assemblies references:
@@ -38,6 +38,38 @@ httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.Aut
 httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
 CypressClient client = new CypressClient(httpClient);
+```
+
+### Getting the Cypress Version (Endpoint now available in Cypress 6.2)
+
+```csharp
+var cypress_version = await client.CypressVersion.Get();
+Console.WriteLine(cypress_version.Content.Version);
+```
+
+### Validating a QRDA file (Endpoint now available in Cypress 6.2)
+
+```csharp
+string year = "2022";
+string qrda_type = "qrdaIII";
+string implementation_guide = "hl7";
+
+var postContent = new MultipartFormDataContent();
+
+var fileContent = File.ReadAllBytes("C:\\Users\\jsmith\\Desktop\\Sample_QRDA_III.xml");
+postContent.Add(new ByteArrayContent(fileContent), "file", "Sample_QRDA_III.xml");
+
+var submitQrdaValidationRequest =
+	new QrdaValidationsPostRequest(new QrdaValidationsUriParameters { Year = year, Qrda_type = qrda_type, Implementation_guide = implementation_guide },
+		postContent);
+
+var validationResults = await client.QrdaValidations.Post(submitQrdaValidationRequest);
+var errorlist = validationResults.Content.QrdaValidationsPostCreatedResponseContent.Execution_errors;
+
+foreach (ExecutionErrors error in errorlist)
+{
+	Console.WriteLine(error.Message);
+}
 ```
 
 ### Creating a Vendor

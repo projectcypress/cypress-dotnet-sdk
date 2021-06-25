@@ -30,13 +30,13 @@
 			"c4_test": {
 				"type": "boolean"
 			},
-			"randomize_records": {
+			"randomize_patients": {
 				"type": "boolean"
 			},
-			"duplicate_records": {
+			"duplicate_patients": {
 				"type": "boolean"
 			},
-            "shift_recods": {
+            "shift_patients": {
                 "type": "boolean"
             },
             "measure_selection": {
